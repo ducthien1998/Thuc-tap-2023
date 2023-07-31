@@ -27,7 +27,7 @@ Ngôn ngữ đánh dấu văn bản phổ biến , cách dùng đơn giản ti�
 - Một số cú pháp mở rộng
 
 
-![cú pháp khác](/Markdown/imgs/cuphapkhac.png)
+![Alt text](../imgs/cuphapkhac.png)
 
 
 [Link tham khảo 1 ](https://www.markdownguide.org/cheat-sheet/)
