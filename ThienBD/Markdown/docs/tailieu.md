@@ -22,6 +22,7 @@ Ngôn ngữ đánh dấu văn bản phổ biến , cách dùng đơn giản ti�
 | kẻ ngang        |------------- |
 | link            |[title](https://www.example.com)|
 | ảnh             |```![alt text](image.jpg)```|
+| nổi bật         |``` NỔI BẬT ``` |
 
 
 - Một số cú pháp mở rộng
