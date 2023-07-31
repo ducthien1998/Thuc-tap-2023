@@ -21,7 +21,7 @@ Ngôn ngữ đánh dấu văn bản phổ biến , cách dùng đơn giản ti�
 |                 |3. Third item |
 | kẻ ngang        |------------- |
 | link            |[title](https://www.example.com)|
-| ảnh             |![alt text](image.jpg)|
+| ảnh             |```![alt text](image.jpg)```|
 
 
 - Một số cú pháp mở rộng
