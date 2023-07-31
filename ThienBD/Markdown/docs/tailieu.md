@@ -30,8 +30,9 @@ Ngôn ngữ đánh dấu văn bản phổ biến , cách dùng đơn giản ti�
 ![cú pháp khác](/Markdown/imgs/cuphapkhac.png)
 
 
-[link tham khảo ](https://www.markdownguide.org/cheat-sheet/)
+[Link tham khảo 1 ](https://www.markdownguide.org/cheat-sheet/)
 
+[Link tham khảo 2 ](https://topdev.vn/blog/markdown-la-gi-cach-su-dung-markdown/#dung-cho-chen-image)
 
 
 
