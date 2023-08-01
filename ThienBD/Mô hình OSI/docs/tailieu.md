@@ -1,7 +1,6 @@
 # 1. Mô hình OSI là gì
 ## 1.1 Định nghĩa
-
-    Mô hình OSI ( open system interconection reference model ) là mô hình tham chiếu kết nối các hệ thống mở , được tạo lên bởi nguyên lý phân tầng .Mỗi tầng giải quyết một vấn đề hẹp của tiến trình truyền thông . Mô hình này có nhiệm vụ thiết lập kết nối truyền thông và thiết kế giao thức mạng giữa các máy tính 
+<p> Mô hình OSI ( open system interconection reference model ) là mô hình tham chiếu kết nối các hệ thống mở , được tạo lên bởi nguyên lý phân tầng .Mỗi tầng giải quyết một vấn đề hẹp của tiến trình truyền thông . Mô hình này có nhiệm vụ thiết lập kết nối truyền thông và thiết kế giao thức mạng giữa các máy tính <p>
 
 ![Alt text](../imgs/mohinhosilagichucnangcuacactanggiaothuctrongmohinhosi.png)
 
