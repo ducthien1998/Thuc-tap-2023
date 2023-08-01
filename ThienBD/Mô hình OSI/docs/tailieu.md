@@ -5,16 +5,16 @@
 ![Alt text](../imgs/mohinhosilagichucnangcuacactanggiaothuctrongmohinhosi.png)
 
 ## 1.2 Nhiệm vụ và chức năng
+<p> Mô hình OSI là thiết kế dùng để tham chiếu đến các kết nối giữa các máy tính với nhau . Các giao thức giữa các tầng với nhau , đồng thời trao đổi dữ liệu <p>
 
-    Mô hình OSI là thiết kế dùng để tham chiếu đến các kết nối giữa các máy tính với nhau . Các giao thức giữa các tầng với nhau , đồng thời trao đổi dữ liệu  
 ## 1.3 Các giao thức sử dụng trong mô hình OSI
-    - Giao thức hướng liên kết :Trước khi truyền dữ liệu , 2 thành phần cùng tầng trong 2 hệ thống cần thiết lập 1 liên kết logic . Đồng nhất các tham số trong quá trình truyền dữ liệu , cắt/hợp dữ liệu.Thiết lập liên kết logic sẽ được nâng cao độ tin cậy và an toàn trong quá trình trao đổi dữ liệu
-    - Giao thức không liên kết :Dữ liệu được truyền độc lập trên các tuyến khác nhau. Với các giao thức không liên kết chỉ có giai đoạn duy nhất truyền dữ liệu.
+- Giao thức hướng liên kết :Trước khi truyền dữ liệu , 2 thành phần cùng tầng trong 2 hệ thống cần thiết lập 1 liên kết logic . Đồng nhất các tham số trong quá trình truyền dữ liệu , cắt/hợp dữ liệu.Thiết lập liên kết logic sẽ được nâng cao độ tin cậy và an toàn trong quá trình trao đổi dữ liệu
+- Giao thức không liên kết :Dữ liệu được truyền độc lập trên các tuyến khác nhau. Với các giao thức không liên kết chỉ có giai đoạn duy nhất truyền dữ liệu.
 
 # 2. Cấu tạo và chức năng các tầng
-    Mô hình OSI bao gồm 7 tầng
-    Tầng 1 đến 4 có nhiệm vụ di chuyển dữ liệu
-    Từ tầng 5 – 7 thực hiện nhiệm vụ chuyển tiếp dữ liệu và các nhiệm vụ đặc thù khác 
+Mô hình OSI bao gồm 7 tầng
+Tầng 1 đến 4 có nhiệm vụ di chuyển dữ liệu
+Từ tầng 5 – 7 thực hiện nhiệm vụ chuyển tiếp dữ liệu và các nhiệm vụ đặc thù khác 
 
 ![Alt text](../imgs/OSI_Model_v1.svg.png)    
 
