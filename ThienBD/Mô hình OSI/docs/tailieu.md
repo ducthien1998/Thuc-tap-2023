@@ -19,42 +19,42 @@ Từ tầng 5 – 7 thực hiện nhiệm vụ chuyển tiếp dữ liệu và c
 ![Alt text](../imgs/OSI_Model_v1.svg.png)    
 
 ## 2.1 Tầng vật lý (Physical Layer)
-    - Tầng vật lý định nghĩa tất cả các đặc tả về điện và vật lý cho các thiết bị, bao gồm các thiết bị phần cứng thực hiện chức năng truyền tải dữ liệu như Router, cáp , phích cắm, nguồn điện
-    - Có nhiệm vụ ứng đối với các đòi hỏi về dịch vụ từ tầng liên kết dữ liệu, thiết lập hoặc ngắt kết nối điện với một phương tiện truyền thông
-    - Tầng vật lý tham gia vào quá trình mà ở đó các dữ liệu được chia sẻ hiệu quả giữa nhiều người dùng với nhiệm vụ điều khiển lưu lượng , giải quyết tranh chấp tài nguyên 
+- Tầng vật lý định nghĩa tất cả các đặc tả về điện và vật lý cho các thiết bị, bao gồm các thiết bị phần cứng thực hiện chức năng truyền tải dữ liệu như Router, cáp , phích cắm, nguồn điện
+- Có nhiệm vụ ứng đối với các đòi hỏi về dịch vụ từ tầng liên kết dữ liệu, thiết lập hoặc ngắt kết nối điện với một phương tiện truyền thông
+- Tầng vật lý tham gia vào quá trình mà ở đó các dữ liệu được chia sẻ hiệu quả giữa nhiều người dùng với nhiệm vụ điều khiển lưu lượng , giải quyết tranh chấp tài nguyên 
 
 ## 2.2 Tầng liên kết dữ liệu ( Data Link )
-    Đây là nơi các thiết bị chuyển mạch (switches) và các cầu nối (bridge) hoạt động, chức năng chủ yếu của tầng liên kết dữ liệu là thực hiện thiết lập các liên kết, duy trì và hủy bỏ các liên kết dữ liệu. Kiểm soát lỗi và kiểm soát lưu lượng , nó giống với tầng mạng có nhiệm vụ
-    - Gửi thông tin từ nơi này đến nơi khác
-    - Hỗ trợ dữ liệu truyền đi giữa các thiết bị trong cùng một mạng
-    - Phát hiện và sửa chữa các lỗi trong tầng vật lý ( nếu có )
+Đây là nơi các thiết bị chuyển mạch (switches) và các cầu nối (bridge) hoạt động, chức năng chủ yếu của tầng liên kết dữ liệu là thực hiện thiết lập các liên kết, duy trì và hủy bỏ các liên kết dữ liệu. Kiểm soát lỗi và kiểm soát lưu lượng , nó giống với tầng mạng có nhiệm vụ
+- Gửi thông tin từ nơi này đến nơi khác
+- Hỗ trợ dữ liệu truyền đi giữa các thiết bị trong cùng một mạng
+- Phát hiện và sửa chữa các lỗi trong tầng vật lý ( nếu có )
 
 ## 2.3 Tầng mạng ( Network)
-    - Tầng mạng có nhiệm vụ đáp ứng các yêu cầu của tầng giao vận cũng như đưa ra yêu cầu với tầng liên kết dữ liệu bên dưới,chọn đường đi (routing) cho các gói tin nguồn tới đích có thể trong cùng một mạng hoặc khác mạng nhau
-    - Đánh địa chỉ cho các gói tin , dịch địa chỉ logic sang địa chỉ vật lý
-    - Cung cấp thuật toán dò đường cho router, xác định đường truyền vật lý tốt nhất cho dữ liệu
-    - Giúp truyền dữ liệu giữa các máy tính nếu ở 2 mạng khác nhau 
+- Tầng mạng có nhiệm vụ đáp ứng các yêu cầu của tầng giao vận cũng như đưa ra yêu cầu với tầng liên kết dữ liệu bên dưới,chọn đường đi (routing) cho các gói tin nguồn tới đích có thể trong cùng một mạng hoặc khác mạng nhau
+- Đánh địa chỉ cho các gói tin , dịch địa chỉ logic sang địa chỉ vật lý
+- Cung cấp thuật toán dò đường cho router, xác định đường truyền vật lý tốt nhất cho dữ liệu
+- Giúp truyền dữ liệu giữa các máy tính nếu ở 2 mạng khác nhau 
 
 ## 2.4 Tầng giao vận ( Transport )
-    - Tầng giao vận chịu trách nhiệm lập kết nối giữa 2 máy tính với nhau 
-    - Có thể theo dõi và truyền lại những gói tin thất bại 
-    - Nhận dữ liệu từ tầng phiên và truyển xuống Network đồng thời nhận dữ liệu đã xử lý truyền lại cho tầng phiên 
-    - Chịu trách nhiệm kiểm soát và sửa lỗi , điều khiển lưu lượng dữ liệu ,đảm bảo dữ liệu truyền đi trọn vẹn , chính xác và không gây quá tải cho bên nhận
+- Tầng giao vận chịu trách nhiệm lập kết nối giữa 2 máy tính với nhau 
+- Có thể theo dõi và truyền lại những gói tin thất bại 
+- Nhận dữ liệu từ tầng phiên và truyển xuống Network đồng thời nhận dữ liệu đã xử lý truyền lại cho tầng phiên 
+- Chịu trách nhiệm kiểm soát và sửa lỗi , điều khiển lưu lượng dữ liệu ,đảm bảo dữ liệu truyền đi trọn vẹn , chính xác và không gây quá tải cho bên nhận
 
 ## 2.5 Tầng phiên (Session)
-    Tầng phiên cho phép người sử dụng trên các máy khác nhau thiết lập, duy trì và đồng bộ phiên truyền thông giữa họ với nhau. Nói cách khác tầng phiên thiết lập “các giao dịch” giữa các thực thể đầu cuối.
-    - Cung cấp các nhu cầu dịch vụ cho tầng diễn hoạt 
-    - Cung cấp liên kết giữa 2 đầu cuối sử dụng dịch vụ phiên sao cho trao đổi dữ liệu một cách đồng bộ và sau khi kết thúc thì giải phóng liên kết 
-    - Hỗ trợ hoạt động đơn công (single), bán song công (half-duplex) hoặc song công (duplex)
+Tầng phiên cho phép người sử dụng trên các máy khác nhau thiết lập, duy trì và đồng bộ phiên truyền thông giữa họ với nhau. Nói cách khác tầng phiên thiết lập “các giao dịch” giữa các thực thể đầu cuối.
+- Cung cấp các nhu cầu dịch vụ cho tầng diễn hoạt 
+- Cung cấp liên kết giữa 2 đầu cuối sử dụng dịch vụ phiên sao cho trao đổi dữ liệu một cách đồng bộ và sau khi kết thúc thì giải phóng liên kết 
+- Hỗ trợ hoạt động đơn công (single), bán song công (half-duplex) hoặc song công (duplex)
 
 ## 2.6 Tầng diễn hoạt (Presentation)
-    Cung cấp một giao diện tiêu chuẩn cho tầng ứng dụng, tầng này có nhiệm vụ phiên dịch , nén , giải nén , giải mã , mã hóa dữ liệu 
-    - Phiên dịch dữ liệu để tầng ứng dụng hiểu
-    - Mã hóa dữ liệu gửi đi và giải mã dữ liệu nhận được
-    - Nén dữ liệu trước khi truyền xuống tầng dưới
+Cung cấp một giao diện tiêu chuẩn cho tầng ứng dụng, tầng này có nhiệm vụ phiên dịch , nén , giải nén , giải mã , mã hóa dữ liệu 
+- Phiên dịch dữ liệu để tầng ứng dụng hiểu
+- Mã hóa dữ liệu gửi đi và giải mã dữ liệu nhận được
+- Nén dữ liệu trước khi truyền xuống tầng dưới
 
 ## 2.7 Tầng ứng dụng (Application)
-    Tầng ứng dụng là tầng gần với người sử dụng nhất. Nó cung cấp phương tiện cho người dùng truy nhập các thông tin và dữ liệu trên mạng thông qua chương trình ứng dụng. Tầng này là giao diện chính để người dùng tương tác với chương trình ứng dụng, và qua đó với mạng
+Tầng ứng dụng là tầng gần với người sử dụng nhất. Nó cung cấp phương tiện cho người dùng truy nhập các thông tin và dữ liệu trên mạng thông qua chương trình ứng dụng. Tầng này là giao diện chính để người dùng tương tác với chương trình ứng dụng, và qua đó với mạng
 
 **Bảng tóm tắt chức năng các tầng**
 
