@@ -18,9 +18,9 @@ Tầng 2: Tầng mạng (Internet Layer-IP) trên mô hình TCP/IP có vai trò 
 Các giao thức chính trong tầng là IP, ICMP và ARP.
 - IP – Internet Protocol
 - ICMP – Internet Control Message Protocol
-- IGMP- Internet Group Message Protocol
+- IGMP- Internet Group Management Protocol
 
-Tầng 3: Tầng vận chuyển (Transport Layer-TCP) đảm nhiệm việc phân nhỏ các gói tin có kích thước lớn khi gửi và tập hợp lại khi nhận, tính toàn vẹn cho dữ liệu (không lỗi, không mất, đúng thứ tự) là yếu tố được đảm bảo.Nếu để ý thì bạn sẽ thất chức năng của tầng vận chuyển ở giao thức TCP/IP cũng giống với tầng vận chuyển của mô hình OSI.
+Tầng 3: Tầng vận chuyển (Transport Layer-TCP) đảm nhận nhiệm việc phân nhỏ các gói tin có kích thước lớn khi gửi và tập hợp lại khi nhận, tính toàn vẹn cho dữ liệu (không lỗi, không mất, đúng thứ tự) là yếu tố được đảm bảo.Nếu để ý thì bạn sẽ thấy chức năng của tầng vận chuyển ở giao thức TCP/IP cũng giống với tầng vận chuyển của mô hình OSI.
 
 Tầng 4: Tầng ứng dụng (Application Layer) là nơi các chương trình mạng như Web Browser,Mail User Agent làm việc để liên lạc giữa các node mạng.Do mô hình TCP/IP không có tầng nào nằm giữa các tầng ứng dụng và tầng vận chuyển, nên tầng Application của TCP/IP bao gồm các giao thức hoạt động như tầng trình diễn và giao dịch trong OSI.
 

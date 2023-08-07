@@ -160,3 +160,4 @@ Nguyên lý cơ bản của kỹ thuật chia subnet: Để có thể chia nhỏ
  [4] [http://hatangmang.blogspot.com/2014/06/ip-header-va-van-e-inh-tuyen.html](http://hatangmang.blogspot.com/2014/06/ip-header-va-van-e-inh-tuyen.html)
 
 [5] [chiaIP]()
+
