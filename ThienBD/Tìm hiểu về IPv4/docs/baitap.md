@@ -556,7 +556,7 @@ f, 70.9.12.35/30
 Host này thuộc mạng 70.9.12.32/30  
 g, 158.16.23.208/29  
 /29 nên sẽ có 29 bit mạng , octet chia cat là octet thứ 4 , số bit mượn của octet này là 5 , bước nhảy là 8 . Lấy octet thứ 4 của địa chỉ host là 208 chia cho 8 được 26   
-Host này thuộc mạng 158.16.23.208/29   
+Host này không dùng làm địa chỉ mạng   
 # Bài 4 Tóm tắt địa chỉ mạng 
 a,   
 192.168.0.0/24  
