@@ -535,7 +535,28 @@ SN2: 172.16.5.252/30 ( gán cho Mạng 7)
 
 ![Alt text](<../imgs/bai 2 - gán subnet.png>)
 
-
+# Bài 3 
+a, 192.168.1.130/29  
+/29 nên sẽ có 29 bit mạng , octet chia cat là octet thứ 4 , số bit mượn của octet này là 5 , bước nhảy là 8 . Lấy octet thứ 4 của địa chỉ host là 130 chia cho 8 được 16 còn dư , ta lấy 16 nhân 8 được 128   
+Host này thuộc mạng 192.168.1.128/29  
+b, 172.16.34.57/18  
+/18 nên sẽ có 18 bit mạng , octet chia cat là octet thứ 3 , số bit mượn của octet này là 2 , bước nhảy là 64 . Lấy octet thứ 3 của địa chỉ host là 34 chia cho 64 được 0  
+Host này thuộc mạng 172.16.0.0/18  
+c, 203.162.4.191/28  
+/28 nên sẽ có 28 bit mạng , octet chia cat là octet thứ 4 , số bit mượn của octet này là 4 , bước nhảy là 16 . Lấy octet thứ 4 của địa chỉ host là 191 chia cho 16 được 11 còn dư , ta lấy 11 nhân 16 ta được 176   
+Host này thuộc mạng 203.162.4.176/28  
+d, 1.1.1.1/30  
+/30 nên sẽ có 30 bit mạng , octet chia cat là octet thứ 4 , số bit mượn của octet này là 6 , bước nhảy là 4 . Lấy octet thứ 4 của địa chỉ host là 1 chia cho 4 được 0  
+Host này thuộc mạng 1.1.1.0/30  
+e, 10.10.10.89/29
+/29 nên sẽ có 29 bit mạng , octet chia cat là octet thứ 4 , số bit mượn của octet này là 5 , bước nhảy là 8 . Lấy octet thứ 4 của địa chỉ host là 89 chia cho 8 được 11 còn dư , ta lấy 11 nhân 8 ta được 88     
+Host này thuộc mạng 10.10.10.88/29
+f, 70.9.12.35/30  
+/30 nên sẽ có 30 bit mạng , octet chia cat là octet thứ 4 , số bit mượn của octet này là 6 , bước nhảy là 4 . Lấy octet thứ 4 của địa chỉ host là 35 chia cho 4 được 8 còn dư , ta lây 8 nhân với 4 được 32    
+Host này thuộc mạng 70.9.12.32/30  
+g, 158.16.23.208/29  
+/29 nên sẽ có 29 bit mạng , octet chia cat là octet thứ 4 , số bit mượn của octet này là 5 , bước nhảy là 8 . Lấy octet thứ 4 của địa chỉ host là 208 chia cho 8 được 26   
+Host này thuộc mạng 158.16.23.208/29   
 # Bài 4 Tóm tắt địa chỉ mạng 
 a,   
 192.168.0.0/24  
@@ -555,8 +576,8 @@ b,
 172.16.24.0/24  
 172.16.28.0/24  
 Octet thứ 3 có sự khác biệt , ta có
-192.168.|000|10000.0
-192.168.|000|10100.0
-192.168.|000|11000.0
-192.168.|000|11100.0
-Ta thấy octet thứ ba còn có thêm 3 bit giống nhau. Vậy ta có mạng tóm tắt là 192.168.16.0/17.
+172.16.|000|10000.0
+172.16.|000|10100.0
+172.16.|000|11000.0
+172.16.|000|11100.0
+Ta thấy octet thứ ba còn có thêm 3 bit giống nhau. Vậy ta có mạng tóm tắt là 172.16.0.0/19.
