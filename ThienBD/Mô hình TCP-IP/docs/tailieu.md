@@ -79,6 +79,41 @@ FTP là giao thức có phần ít phổ biến hơn. Tuy nhiên, bạn cũng kh
 - Tầng 4 (application): Gỡ bỏ những header còn lại để nhận được dữ liệu bên gửi
  ![Alt text](../imgs/aaa.png)
 
+> Bắt tay ba bước ( Three way handshake)
+> Bước 1 (SYN): Bước đầu khi máy khách muốn kết nối với máy chủ , máy khách sẽ gửi một tin nhắn SYN segment(Số thứ tự đồng bộ hóa) để thông báo cho máy chủ rằng máy khách có thể bắt đầu liên lạc với trình tự nào. Tin nhắn SYN bao gồm các thông tin SEQ#(Đánh dấu thứ tự tin gửi tăng dần ),ACK#(chứa số SEQ# kế tiếp cuả thiết bị đích ),SYN#(chỉ 0 hoặc 1 tùy theo dạng tin nhắn ). 
+> Bước 2(SYN+ACK) : Máy chủ gửi tin nhắn trả lời yêu cầu  bằng tin nhắn SYN-ACK biểu thị bằng số thứ tự mà nó có khả năng bắt đầu các phân đoạn đó 
+> Bước 3(ACK): Sau khi nhận được tin nhắn đồng ý , máy khác sẽ gửi tin nhắn ACK thông báo nhận được đến với máy chủ và tạo kết nối 
+![Alt text](../imgs/twh.png)
+
+
+Sau khi hoàn thành bắt tay ba bước chúng ta có thể gửi các phân đoạn Segment với nhau . Ví dụ máy cá nhân gửi Segment X tới máy chủ , máy chủ sẽ gửi lại 1 ACK Segment x thôn báo nhận được thành công . Ngược lại máy chủ gửi 1 Segment Y tới máy khách thì máy khách cũng gửi 1 ACK Segment Y ngược lại máy chủ thông báo nhận được thành công . Trong trường hợp 1 thời gian nhất định máy tính gửi không nhận được tin nhắn ACK Segment từ máy nhận thì sẽ tự động gửi lại .
+
+> Ưu điểm của Three way handshake
+> - Có chơ chế báo nhận 
+> - Cơ chế đảm bảo tin cậy 
+> - Phục hồi dữ liệu bị mất trên đường truyền 
+> - Các segment được đánh số thứ tự nên khi nhận sẽ đảm bảo thứ tự các gói tin 
+> - Có cơ chế kiểm soát luồng , nhằm đảm bảo không làm quá tải bên nhận 
+> - Kiểm soát tắc nghẽn giúp việc truyền dữ liệu không làm tắc nghẽn mạng 
+> - Hỗ trợ truyền và nhận cùng lúc nhiều Segment
+> 
+
+# 7. Phân biệt UDP vs TCP 
+## TCP là gì   
+TCP ( Transmission Control Protocol) là giao thức tạo các kết nối giữa các máy tính được kết nối mạng , qua đó có thể trao đổi các dữ liệu hoặc các gói tin . Giao thức đảm bảo gói tin truyền đi đáng tin cậy và đúng trình tự   
+## UDP là gì  
+UDP (User Datagram Protocol) là giao thức quan trọng trong mô hình TCP/IP . UDP giúp máy tính gửi đi các gói tin ngắn được gọi là datagram tới máy khác . UDP không cung cấp sự tin cậy hay đúng thứ tự khi gửi 1 gói tin tới máy khác , các gói tin có thể không đúng thứ tự hoặc mất mà không có thông báo .Tuy nhiên tốc độ gửi đi của UDP lại nhanh hơn TCP vì gửi các gói tin nhỏ , vậy nên UDP phù hợp với các truy vấn nhỏ số lượng lớn yêu cầu   
+## So sánh giữa TCP và UDP 
+
+| Tính năng | TCP | UDP |
+|-----------|-----|-----|
+|Trạng thái kết nối | Yêu cầu kết nối đã thiết lập để truyền dữ liệu ( Phải ngắt kết nối sau khi đã được truyền )| Không kết nối , không yêu cầu mở , không duy trì hoặc chấm dứt kết nôi|
+|Trình tự dữ liệu | Có trình tự | Không trình tự |
+|Cung cấp dữ liệu đến đích | Đảm bảo | Không đảm bảo |
+|Truyền lại gói dữ liệu bị mất | Truyền lại được | Không truyền lại được |
+|Kiểm tra lỗi | Kiểm tra lỗi mở rộng và xác nhận dữ liệu| Tổng kiểm tra cơ bản |
+|Tốc độ | Chậm hơn UDP | Nhanh hơn TCP|  
+
  Tư liệu tham khảo.
 
 [1] [https://www.totolink.vn/article/149-mo-hinh-tcp-ip-la-gi-chuc-nang-cua-cac-tang-trong-mo-hinh-tcp-ip.html](https://www.totolink.vn/article/149-mo-hinh-tcp-ip-la-gi-chuc-nang-cua-cac-tang-trong-mo-hinh-tcp-ip.html)
