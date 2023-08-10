@@ -141,6 +141,17 @@ Ví dụ: Xét địa chỉ 192.168.1.1 với subnet mask tương ứng là 255.
 Lớp A: 255.0.0.0
 Lớp B: 255.255.0.0
 Lớp C: 255.255.255.0
+# 6 Phân biệt Multicast và Broadcast  
+## Broadcast   
+Broadcast được sử dụng trong mạng máy tính để mô tả cách thức truyền tin từ 1 điểm đến tất cả các điểm khác trong cùng một mạng . Một gói broadcast chuyển đến tất cả các thiết bị tham gia trong mạng cục bộ , mà không phải quy định rõ ràng như một máy nhận . 
+Một địa chỉ broadcast sẽ đại diện cho tất cả các thiết bị kết nối cùng mạng. Do đó khi một gói tin được gửi đến địa chỉ broadcast , tất cả các thiết bị trong mạng đều nhận được 
+Có 2 loại broadcast  
+- Direct broadcast 
+- Local broadcast 
+
+## Multicast
+Multicast được sử dụng trong mạng máy tính để mô tả cách thức truyền tin từ 1 điểm đến 1 nhóm các điểm khác trong cùng một mạng , đặc điểm khác so với broadcast là có tính chọn lọc cao hơn  
+![Alt text](../imgs/Multicast-la-gi.webp)
 
 ## Số Prefix
 Subnet mask được sử dụng kèm với địa chỉ IP để một host 
