@@ -148,10 +148,10 @@ Một địa chỉ broadcast sẽ đại diện cho tất cả các thiết bị
 Có 2 loại broadcast  
 - Direct broadcast 
 - Local broadcast 
-
+![Alt text](../imgs/broadcast.png)
 ## Multicast
 Multicast được sử dụng trong mạng máy tính để mô tả cách thức truyền tin từ 1 điểm đến 1 nhóm các điểm khác trong cùng một mạng , đặc điểm khác so với broadcast là có tính chọn lọc cao hơn  
-![Alt text](../imgs/Multicast-la-gi.webp)
+- ![Alt text](../imgs/Multicast-la-gi.jpg)
 
 ## Số Prefix
 Subnet mask được sử dụng kèm với địa chỉ IP để một host 
