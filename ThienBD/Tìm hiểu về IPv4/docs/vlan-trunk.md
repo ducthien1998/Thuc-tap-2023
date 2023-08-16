@@ -102,12 +102,39 @@ Spanning tree protocal là một giao thức được sử dụng để ngăn ch
 
 Là hiện tượng hệ thống mạng quá tải lưu lượng phát khi cấu hình IP bị trùng hoặc không có địa chỉ IP đích .Điều này làm cho dữ liệu truyền lặp đi lặp lại , khiến hệ thống mạng ngưng hoạt động.
 Giả sử PC A tiến hành gửi một broadcast frame vào hệ thống. Khi SwX nhận được frame này nó sẻ đẩy frame ra tất cả các port đến SwY. SwY nhận được broadcast frame này lại tiếp tục gửi ra tất cả các port trừ port nhận vào và quá trình frame này cứ chạy mãi một vòng giữa SwX và SwY. Các Sw cứ nhân bản và flood broadcast frame này ra. Số lượng frame này sẻ ngày càng lớn. Và khi Sw không còn khả năng xử lý nữa thì sẻ khiến Sw bị treo.  
-
- ![Alt text](<../imgs/broadcast storm.png>) 
+![Alt text](<../imgs/broadcast storm.png>)
  ***Trùng lặp Frame***
  PCA gửi một unicast frame đến PCB và địa chỉ MAC của B chưa được cập nhật vào bảng MAC của Sw thì Sw sẻ xử lý các frame này như một broadcast frame và flood ra tất cả các port trừ port nhận vào. Và SwX và SwY đều thực hiện chuyển flood frame này ra nhiều port khiến PCB phải xử lí frame này 2 lần.
 
 ![Alt text](<../imgs/trung lap frame.png>)
+
+## Tiến trình bầu chọn và hoạt động của giao thức STP
+***Chọn Root-Bridge của Giao thức Spanning Tree***
+Một khi tiến trình STP được bật, các Sw sẻ gửi các gói tin BPDU (Bridge Protocol Data Unit) để trao đổi giữa các Switch với nhau, BPDU là một gói tin quan trọng trong tiến trình STP, BPDU chứa một thông tin quan trọng là Bridge-ID của các switch, giá trị này dùng để dịnh danh mỗi Switch khi nào tham gia tiến trình STP.
+Bridge ID dài 8 byte,Số Priority(2byte) có giá trị từ 0 – 65535 mặc định là 32768, MAC address(6byte)
+Tiến trình bầu chọn Root-Bridge sẻ tiến hành như sau:
+- Đầu tiên sẻ so sánh Sw nào có số Priority thấp nhất sẻ là Root-Bridge
+- Các Sw được thiết lập số Priority bằng nhau thì tiến trình thứ 2 là so sánh MAC sẻ thực hiện, Sw nào có MAC nhỏ nhất sẻ làm Root-Bridge. MAC là địa chỉ duy nhất trên thế giới nên sẻ không xảy ra trùng lập được. VD như hình trên SW1 có MAC nhỏ nhất nên sẻ được bầu chọn làm Root-Bridge.
+- Sau khi đã bầu chọn được Root-Bridge thì chỉ có SW làm root mới gửi BPDU ra khỏi cổng để duy trì tiến trình STP ( gửi 2s/lần). Các SW con chỉ nhận, bổ xung thông tin BPDU và forward thông tin BPDU này.
+
+***Bầu chọn Root Port của giao thức Spanning tree***
+Sau khi bầu chọn các Root Bridge các Switch sẽ bầu chọn các Rootport là port có đường về Root-bridge có tổng cost tích lũy nhỏ nhất 
+Để xác định được cost tích lũy của một port đến Switch làm Root-bridge ta thực hiện tính ngược từ Root về cổng đó theo qui tắc “vào cộng ra không cộng” dựa theo chiều lan truyền BPDU.
+***Bầu chọn Disignated Port***
+Tiếp theo trong tiến trình của Giao thức Spanning Tree ta thực hiện bầu chọn Designated port trên các phân đoạn mạng. Designated port là port cung cấp đường về root-bridge có tổng cost nhỏ nhất trên phân đoạn mạng đang xét. Một link kết nối chỉ có một Designated port
+Các quy tắc trong bầu chọn Designated port 
+- Tất cả các port của Root bridge đều là Designated port
+- Trên một link p2p thì đối diện Root port là Designate port 
+- Nếu trên một link có 2 cổng cung cấp đường về Root-bridge có cost tích lũy bằng nhau. Lúc đó sẻ dùng Sender ID để xác định, nếu Sender ID lại bằng nhau thì dùng đến port-ID để xét.
+
+***Tiến trình Blocking các port còn lại của giao thức STP***
+Các port không có vai trò là Root hay Designated sẻ bị Block và được gọi là Alternated port
+
+
+
+
+
+
 
 
 Tài liệu tham khảo  
@@ -115,3 +142,4 @@ Tài liệu tham khảo
 [2] [https://bkhost.vn/blog/vlan/](https://bkhost.vn/blog/vlan/)
 [3] [https://quantrimang.com/cong-nghe/vlan-la-gi-lam-the-nao-de-cau-hinh-mot-vlan-tren-switch-cisco-64830](https://quantrimang.com/cong-nghe/vlan-la-gi-lam-the-nao-de-cau-hinh-mot-vlan-tren-switch-cisco-64830)
 [4] [https://hocmangcoban.blogspot.com/2014/05/vtp-vlan-trunking-protocol.html](https://hocmangcoban.blogspot.com/2014/05/vtp-vlan-trunking-protocol.html)
+[5] [https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/](https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/)
