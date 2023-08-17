@@ -102,11 +102,11 @@ Spanning tree protocal là một giao thức được sử dụng để ngăn ch
 
 Là hiện tượng hệ thống mạng quá tải lưu lượng phát khi cấu hình IP bị trùng hoặc không có địa chỉ IP đích .Điều này làm cho dữ liệu truyền lặp đi lặp lại , khiến hệ thống mạng ngưng hoạt động.
 Giả sử PC A tiến hành gửi một broadcast frame vào hệ thống. Khi SwX nhận được frame này nó sẻ đẩy frame ra tất cả các port đến SwY. SwY nhận được broadcast frame này lại tiếp tục gửi ra tất cả các port trừ port nhận vào và quá trình frame này cứ chạy mãi một vòng giữa SwX và SwY. Các Sw cứ nhân bản và flood broadcast frame này ra. Số lượng frame này sẻ ngày càng lớn. Và khi Sw không còn khả năng xử lý nữa thì sẻ khiến Sw bị treo.  
-![Alt text](<../imgs/broadcast storm.png>)
+
+![Alt text](../imgs/broadcaststorm.png)
  ***Trùng lặp Frame***
  PCA gửi một unicast frame đến PCB và địa chỉ MAC của B chưa được cập nhật vào bảng MAC của Sw thì Sw sẻ xử lý các frame này như một broadcast frame và flood ra tất cả các port trừ port nhận vào. Và SwX và SwY đều thực hiện chuyển flood frame này ra nhiều port khiến PCB phải xử lí frame này 2 lần.
-
-![Alt text](<../imgs/trung lap frame.png>)
+![Alt text](../imgs/trunglapframe.png)
 
 ## Tiến trình bầu chọn và hoạt động của giao thức STP
 ***Chọn Root-Bridge của Giao thức Spanning Tree***
@@ -131,8 +131,76 @@ Các quy tắc trong bầu chọn Designated port
 Các port không có vai trò là Root hay Designated sẻ bị Block và được gọi là Alternated port
 
 
+## Quá trình tìm Block Port Spanning tree
+### Root Switch
+- Khi các Sw được đấu nối khởi động nó sẽ gửi gói tin BPDU(bridge protocol data unit) trên các port của Switch.
+- Thông số quyết định Sw nào được làm Root Sw là Bridge-ID(8 byte) gồm có các thông số :  
+  priority(của switch): dài 2 byte(9 -> 65535), default = 32768. Sw nào có chỉ số priority có chỉ số nhỏ nhất sẽ được chọn làm Root-switch 
+  MAC Address Switch: dài 6 byte. Xét từ trái sang phải từng giá trị hexa thì switch nào có MAC nhỏ nhất làm Root-switch
+- Khi bầu xong Root-switch thì chỉ có Root-switch được gửi BPDU(2s/1 lần). Việc gửi đó để duy trì cây spanning tree đó không bị Loop
+- Theo nguyên tắc đánh số MAC của nhà sản xuất thì khi bầu chọn root-switch nó sẽ chọn switch đời đầu làm root-switch => sw cùi cắp làm lãnh đạo. Nên trong thực tế ta ko bao giờ cho bầu chọn bằng MAC mà ta chỉnh priority
 
+### Root port
+- Là port cung cấp đường về Root-switch mà có tổng path-cost là nhỏ nhất
+- Khi bầu chọn Root-port thì Root-Switch ko tham gia quá trình bầu chọn này
+- Mỗi Root-switch chỉ có 1 Root-port
+- Path-cost là giá trị cost trên từng cổng của Switch.
+![Alt text](../imgs/a1.jpg)
+- Nguyên tắc tính tổng path-cost: tính từ switch đang muốn tính --> Root-switch
+    Đi ra: ko cộng
+    Đi vào: cộng cost
+### Luật Tie-Break
+- Sender Bridge ID:
+    Cổng nào kết nối switch mà switch đó có bridge ID nhỏ nhất -> port đó sẽ được chọn làm Root-port.
+    Bridge ID của B nhỏ hơn C à port số 2 làm Root-port
+- Sender Port ID:
+    - Port ID của Switch bên kia thì port nào của switch bên kia có giá trị port-ID nhỏ hơn thì chọn port bên switch mình kết nối với port ID nhỏ hơn đó.
+        - Priority của port: có giá trị từ 0 -> 255, default=128. Port nào có priority nhỏ hơn thì port đó có Port ID nhỏ hơn.
+        - Vị trí của port: Xét theo hạng của số thứ tự của port. Port số 1 < port 2 -> port số 2 làm root-port
+![Alt text](../imgs/a2.jpg)
+- Khi các luật trên không giải quyết được thì nó sẽ xét đến Port ID trên chính nó
+  - Priority và vị trí của port
+  - VD: Vì hub nó thực hiện flood ra tất cả các port nên frame từ port 1 của swD sẽ đi đến hub và đi cả 2 đường từ hub -> swC. Nên lúc này chúng ta không thể xác định bằng cách trên. Lúc này ta phải xet port-ID trên chính SwC
+![Alt text](../imgs/a3.jpg)
 
+### Designated port
+- Tất cả các port của Root-sw đều là Designated port
+- Trên 1 phân đoạn nếu port đối diện là Root-port thì mình là Designated port(ko có ý nghĩa ngược lại).
+- Là port cung cấp đường về Root-sw trên phân đoạn mạng đang xét mà có tổng path-cost là nhỏ nhất.
+
+Vd: tính path-cost trên phân đoạn ta tính từ
+Root-sw(cat 2) --> cat 1 --> cat 4 = 38
+
+![Alt text](../imgs/a4.jpg)
+### Alternate port
+- Khi 1 trong các phân đoạn khác bị đứt thì phân đoạn port lock sẽ được mở ra để chạy
+- Khi phân đoạn trên có lại thì phân đoạn lock sẽ tiếp tục bị lock lại
+- Tuy port lock không nhận được dữ liệu nhưng nó vẫn nhận gói tin BPDU từ Root-switch để duy trì cây spanning-tree. Nếu nó không nhận được gói BPDU thì nó sẽ mở port lock này ra à lúc này bị loop ráng chịu
+
+### Peer PVST(peer Vlan Spanning tree)
+PriorityVlan n = PriorityVlan n + n
+- Lưu ý: Khi chỉnh sửa Priority thì số priority phải chia hết cho 4096
+- Ví dụ: Vlan 1 à priority = 32768 + 1
+
+![Alt text](../imgs/a5.jpg)
+
+### STP timer
+- Helo timer: 2(s) Thời gian gửi BPDU
+- Forward timer: 15(s)
+- Max-agetimes: 20(s) Nếu Root-Sw chết hay port lock không nhận được BPDU thì mất 20s nó mới hoạt động( tự mở lên hoặc bầu chọn lại Root-sw)
+
+### STP state
+- Các trạng thái khi Sw khởi động
+Disable: down
+Blocking: nhận BDPU, ko gửi BPDU, ko học MAC, ko forward frame
+Listening: _________, gửi BPDU, ___________________
+Leaning: __________________, học MAC, _______________
+Forwarding: _____________________________, forward frame
+- Việc chuyển từ trạng thái: Blocking à listening mất 20(s)
+- Việc chuyển từ trạng thái: Listening à Leaning mất 15(s)
+- Việc chuyển từ trạng thái: Leaning à Forwarding mất 15(s)
+=> Vậy khi Sw khởi động xong or khi cắm dây vào port thì phải mất 30(s) đèn chuyển sang màu xanh
+=> Mất 30+20+2 = 52(s) để STP port lock mới hoạt động
 
 
 
@@ -142,4 +210,5 @@ Tài liệu tham khảo
 [2] [https://bkhost.vn/blog/vlan/](https://bkhost.vn/blog/vlan/)
 [3] [https://quantrimang.com/cong-nghe/vlan-la-gi-lam-the-nao-de-cau-hinh-mot-vlan-tren-switch-cisco-64830](https://quantrimang.com/cong-nghe/vlan-la-gi-lam-the-nao-de-cau-hinh-mot-vlan-tren-switch-cisco-64830)
 [4] [https://hocmangcoban.blogspot.com/2014/05/vtp-vlan-trunking-protocol.html](https://hocmangcoban.blogspot.com/2014/05/vtp-vlan-trunking-protocol.html)
-[5] [https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/](https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/)
+[5] [https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/](https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/)\
+[6] [https://securityzone.vn/t/bai-19-tim-hieu-giao-thuc-spanning-tree-protocol.163/](https://securityzone.vn/t/bai-19-tim-hieu-giao-thuc-spanning-tree-protocol.163/)
