@@ -203,8 +203,17 @@ Forwarding: _____________________________, forward frame
 => Mất 30+20+2 = 52(s) để STP port lock mới hoạt động
 
 
+# 3.Tìm hiểu về Trunk 
+## Khái niệm 
+Trong hệ thống mạng truyền thông, người ta dùng trunk để chỉ đường trung kế kết nối giữa các thiết bị đầu cuối, trạm con,… Đường trung kế được hiểu là đường truyền hoặc liên kết được thiết kế để mang nhiều tín hiệu. Đồng thời để cung cấp quyền truy cập mạng giữa hai điểm.Trunk thường kết nối các trung tâm chuyển mạch trong một hệ thống truyền thông. Các tín hiệu có thể truyền tải bất kỳ loại dữ liệu truyền thông.
+## Phân loại 
+- Chuẩn DOT1Q hay 802.1q, 2 chuẩn này do IEEE đề ra
+- Chuẩn ISL do Cisco đề ra. Thế nhưng không phải dòng sản phẩm nào của Cisco cũng hỗ trợ chuẩn ISL. Chính vì vậy hiện nay chuẩn dot1q được sử dụng phổ biến hơn so với các chuẩn còn lại
 
-
+## Phân biệt giữa Access port và Trunk port
+- Access port ( Cổng truy cập): Cổng có thể được gán cho một VLAN duy nhất. Loại giao diện này được cấu hình trên các cổng chuyển đổi được kết nối với các thiết bị đầu cuối như máy trạm, máy in hoặc điểm truy cập.
+- Trunk port ( Cổng trung kế): Cổng được kết nối với switch khác nhau. Loại giao diện này có thể mang lưu lượng của nhiều VLAN, do đó cho phép bạn mở rộng các VLAN trên toàn bộ mạng của mình. Các khung được gắn thẻ bằng cách gán VLAN ID cho mỗi khung khi chúng đi qua giữa các công tắc.
+![Alt text](../imgs/access-va-trunk.jpg)
 Tài liệu tham khảo  
 [1] [https://maychusaigon.vn/vlan-la-gi/](https://maychusaigon.vn/vlan-la-gi/)
 [2] [https://bkhost.vn/blog/vlan/](https://bkhost.vn/blog/vlan/)
@@ -212,3 +221,5 @@ Tài liệu tham khảo
 [4] [https://hocmangcoban.blogspot.com/2014/05/vtp-vlan-trunking-protocol.html](https://hocmangcoban.blogspot.com/2014/05/vtp-vlan-trunking-protocol.html)
 [5] [https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/](https://itforvn.com/tu-hoc-ccnax-bai-7-spanning-tree/)\
 [6] [https://securityzone.vn/t/bai-19-tim-hieu-giao-thuc-spanning-tree-protocol.163/](https://securityzone.vn/t/bai-19-tim-hieu-giao-thuc-spanning-tree-protocol.163/)
+[7] [https://digicenter.com.vn/trunk-la-gi/](https://digicenter.com.vn/trunk-la-gi/)
+[8] [https://trogiupnhanh.com/phan-biet-su-khac-nhau-giua-access-va-trunk-port/](https://trogiupnhanh.com/phan-biet-su-khac-nhau-giua-access-va-trunk-port/)
