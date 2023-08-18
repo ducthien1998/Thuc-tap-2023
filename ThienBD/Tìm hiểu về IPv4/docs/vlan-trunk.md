@@ -8,11 +8,16 @@ Những thiết bị trong cùng mạng LAN có thể kết nối với nhau th�
 ## 1.2 VLAN là gì   
 - VLAN là viết tắt của Virtual local area network hay còn gọi là mạng LAN ảo, cho phép chia một con Switch vật lý thành nhiều con Switch ảo, trên một con Switch sẽ tạo được từ VLAN 0 đến VLAN 4095 ( 4096 VLAN ) . Mạng LAN ảo (VLAN) là một nhóm các máy tính được kết nối với cùng một mạng không ở gần nhau . Sử dụng VLAN cho phép sử dụng tài nguyên hiệu quả và có thể hữu ích khi có quá nhiều thiết bị trên một mạng .  
 
+VLAN 0 và 4095 : không được sử dụng 
+VLAN 1 : VLAN default
+VLAN 2-1001: normal range (có thể sử dụng được)
+VLAN 1002-1005: VLAN default , dùng để kết nối đến hệ thống mạng khác như : FDDI , token Ring, ( không kết nối được system Ethernet)
+VLAN 1006-4094 : VLAN extended range(dùng cho các Switch Transparent)
 ![Alt text](../imgs/vlan.jpg)
 
 - Khác biệt giữa VLAN và LAN 
 
-|Đặc Điểm | VLAN | LAN |
+|Đặc Điểm | LAN | VLAN |
 |---------|------|-----|
 |Định nghĩa|Mạng cục bộ LAN là một tập hợp các máy tính và thiết bị ngoại vi được liên kết trong một khu vực địa lý cụ thể | VLAN là một mạng LAN ảo tùy chỉnh được tạo thành từ một hoặc nhiều mạng LAN|
 |Độ trễ| Độ trễ mạng LAN lớn hơn | Đô trễ VLAN giảm xuống |
@@ -22,7 +27,7 @@ Những thiết bị trong cùng mạng LAN có thể kết nối với nhau th�
  
 ## 1.3 Phân loại VLAN 
 - Static VLAN (VLAN tĩnh)
-Static VLAN được tạo ra bằng cách cách gán các cổng của mỗi Switch thành một mạng VLAN. Mỗi cổng nằm trên một VLAN và chỉ giao tiếp, kết nối với những VLAN được chỉ định. Trong nhiều trường hợp các VLAN tĩnh có thể thay đổi nhanh chóng bằng thủ công hoặc tự động hóa mạng.
+Static VLAN được tạo ra bằng cách gán các cổng của mỗi Switch thành một mạng VLAN. Mỗi cổng nằm trên một VLAN và chỉ giao tiếp, kết nối với những VLAN được chỉ định. Trong nhiều trường hợp các VLAN tĩnh có thể thay đổi nhanh chóng bằng thủ công hoặc tự động hóa mạng.
 
 - Dynamic VLAN (VLAN động)
 Khác với Static VLAN, Dynamic VLAN được tạo ra dựa trên loại lưu lượng hoặc thiết bị tạo ra lưu lượng. Thông thường kỹ sư mạng sẽ dùng phần mềm điển hình cisco work 2000 để tạo ra Dynamic VLAN. Một cổng có thể gán cho một VLAN dựa trên địa chỉ Mac nguồn của loại thiết bị đính kèm.
