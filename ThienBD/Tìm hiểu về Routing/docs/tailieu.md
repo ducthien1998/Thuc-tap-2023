@@ -1,8 +1,7 @@
 # 1. Routing là gì ?
 ## 1.1 Định nghĩa 
-Định tuyến hay routing là quá trình lựa chọn đường đi trong bất kỳ mạng nào. Một mạng máy tính được tạo thành từ nhiều máy, được gọi là các node, và các đường dẫn hoặc đường đi kết nối các node đó. Giao tiếp giữa hai node trong một mạng có thể thông qua nhiều con đường khác nhau
-Bộ routing là một quá trình chọn đường dẫn mà dữ liệu có thể được truyền từ nguồn đến đích. routing được thực hiện bởi một thiết bị đặc biệt được gọi là bộ routing(Router).
-![Alt text](../imgs/wifi-router-chuan-wifi-6-ax5400-tp-link-archer-ax73-den-3-1.jpg)
+Định tuyến (Routing) là quá trình tìm kiếm và xác định đường đi tốt nhất trên một mạng máy tính để gói tin tới được đích thông qua các thiết bị định tuyến.
+Để làm được điều đó thì các thiết bị định tuyến cần phải dựa vào thông tin bẳng định tuyến (Routing Table) và giao thức định tuyến ( Routing Protocol).
 
 Bộ routing hoạt động ở lớp mạng trong mô hình OSI và lớp internet trong mô hình TCP / IP
 Bộ routing là một thiết bị mạng chuyển tiếp gói tin dựa trên thông tin có sẵn trong tiêu đề gói và bảng chuyển tiếp.
@@ -46,17 +45,24 @@ Routing tĩnh còn được gọi là routing không theo kiểu routing.
 Đó là một kỹ thuật trong đó người quản trị thêm các tuyến đường trong bảng routing theo cách thủ công. Bộ routing có thể gửi các gói tin đến đích dọc theo tuyến đường do quản trị viên xác định. Trong kỹ thuật này, các quyết định routing không được thực hiện dựa trên điều kiện hoặc cấu trúc liên kết của mạng
 *Ưu điểm của routing tĩnh*
 
-- Không có chi phí: Nó có chi phí cho việc sử dụng CPU của bộ routing. Do đó, bộ routing rẻ hơn có thể được sử dụng để routing tĩnh.
-- Băng thông: Nó không sử dụng băng thông giữa các bộ routing.
-- Bảo mật: Nó cung cấp bảo mật vì người quản trị hệ thống chỉ được phép có quyền kiểm soát việc routing đến một mạng cụ thể.
+- Sử dụng ít băng thông hơn so với các phương thức định tuyến khác.
+- Không tiêu tốn tài nguyên để tính toàn và phân tích gói tin định tuyến.
+- Dễ dàng triển khai, cấu hình.
+- Có tính bảo mật tốt hơn.
 
 
 *Nhược điểm của routing tĩnh:*
 
+- Không có khả năng tự động cập nhật đường đi.
+- Phải cấu hình thủ công khi mạng có sự thay đổi.
+- Khả năng mở rộng kém, phù hợp với mô hình mạng nhỏ.
 
+*Những trường hợp sử dụng định tuyến tĩnh:*
 
-- Đối với một mạng lớn, việc thêm từng tuyến theo cách thủ công vào bảng routing sẽ trở thành một nhiệm vụ rất khó khăn.
-- Người quản trị hệ thống nên có kiến ​​thức tốt về cấu trúc liên kết vì anh ta phải thêm từng tuyến theo cách thủ công.
+- Đường truyền có băng thông thấp.
+- Người quản trị cần kiểm soát các kết nối trong hệ thống.
+- Hệ thống co các tuyến kết nối ít.
+- Kết nối dùng định tuyến tĩnh là đường dự phòng cho đường kết nối dùng giao thức định tuyến động.
 
 **Routing mặc định**
 
