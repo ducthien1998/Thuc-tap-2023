@@ -72,7 +72,7 @@ R1(config-router)exit
 >R1#show ip route ospf  
 
 ![Alt text](image-5.png)
-### Trên Router 1
+### Trên Router 2
 >R2(config)#route ospf 10  
 R2(config-router)#network 192.168.3.0 0.0.0.255 area 0  
 R2(config-router)#network 192.168.2.0 0.0.0.255 area 0  
