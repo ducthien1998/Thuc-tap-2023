@@ -7,10 +7,10 @@
 ## Cấu hình IP trên Router
 ### Trên Router 1
 Đặt tên 
-> Router>enable 
-Router#configure terminal 
-Router(config)#hostname R1
-R1(config)#
+> Router>enable   
+Router#configure terminal   
+Router(config)#hostname R1  
+R1(config)#  
 
 Cấu hình ip cho các cổng trên Router1
 > R1(config)#interface serial 2/0
