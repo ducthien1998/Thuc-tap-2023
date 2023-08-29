@@ -27,7 +27,7 @@ Kiểm tra các ip đã cấu hình
 >R1#show ip interface brief  
 ![Alt text](image-1.png)
 
-### Trên Router 1
+### Trên Router 2
 Đặt tên 
 > Router>enable 
 Router#configure terminal   
