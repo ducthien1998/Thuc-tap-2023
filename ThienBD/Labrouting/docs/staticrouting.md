@@ -1,7 +1,7 @@
 # LAB STATIC ROUTING
 ## Data truyền từ PC1 đến PC2 thông qua Router1 và Router2
 
-![Alt text](image.png)
+![!\[Alt text\](image.png)](../img/LABSTATICROUTING.jpg)
 
 ## Cấu hình bài LAB
 ## Cấu hình IP trên Router
@@ -25,7 +25,8 @@ R1(config-if)#exit
 Kiểm tra các ip đã cấu hình
 
 >R1#show ip interface brief  
-![Alt text](image-1.png)
+![!\[Alt text\](image-1.png)](../img/image-1.png)
+
 
 ### Trên Router 2
 Đặt tên 
@@ -47,19 +48,19 @@ R2(config-if)#exit
 Kiểm tra các ip đã cấu hình
 
 >R2#show ip interface brief  
-![Alt text](image-2.png)
+![!\[Alt text\](image-2.png)](../img/image-2.png)
 
 ## Cấu hình IP trên PC
 ### Trên PC1
 IP Address : 192.168.2.2  
 Subnet Mask : 255.255.255.0  
 Default Gateway : 192.168.2.1  
-![Alt text](image-3.png)
+![!\[Alt text\](image-3.png)](../img/image-3.png)
 ### Trên PC2
 IP Address : 192.168.3.2  
 Subnet Mask : 255.255.255.0  
 Default Gateway : 192.168.3.1  
-![Alt text](image-4.png)
+![!\[Alt text\](image-4.png)](../img/image-4.png)
 
 ## Cấu hình định tuyến đường đi 
 ### Trên Router 1
@@ -70,8 +71,7 @@ R1(config-router)exit
  
 ### Kiểm tra đường mạng 
 >R1#show ip route ospf  
-
-![Alt text](image-5.png)
+![Alt text](../img/image-5.png)
 ### Trên Router 2
 >R2(config)#route ospf 10  
 R2(config-router)#network 192.168.3.0 0.0.0.255 area 0  
@@ -79,11 +79,11 @@ R2(config-router)#network 192.168.2.0 0.0.0.255 area 0
 R2(config-router)exit  
 ### Kiểm tra đường mạng 
 >R2#show ip route ospf  
-![Alt text](image-6.png)
+![!\[Alt text\](image-6.png)](../img/image-6.png)
 
 ## Gửi tập tin từ PC1 đến PC2
 > C:\>ping 192.168.3.2  
 
-![Alt text](image-7.png)
+![!\[Alt text\](image-7.png)](../img/image-7.png)
 
 PC1 đã có thể truyển Data đến PC2
