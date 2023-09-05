@@ -18,8 +18,58 @@ Ví dụ : 1080:0000:0000:0070:0000:0989:CB45:345F sẽ được rút gọn là
 ## 2.2 Thành phần IPv6
 Một địa chỉ IPv6 được chia thành 3 phần: site prefix, subnet ID, interface ID.
 
-Site prefix: là số được gán đến website bằng một ISP. Theo đó, tất cả máy tính trong cùng một vị trí sẽ được chia sẻ cùng một site prefix. Site prefix hướng tới dùng chung khi nó nhận ra mạng của bạn và cho phép mạng có khả năng truy cập từ Internet.
-Subnet ID: là thành phần ở bên trong trang web, được sử dụng với chức năng miêu tả cấu trúc trang của mạng. Một IPv6 subnet có cấu trúc tương đương với một nhánh mạng đơn như subnet của IPv4.
-Interface ID: có cấu trúc tương tự ID trong IPv4. Số này nhận dạng duy nhất một host riêng trong mạng. Interface ID (thứ mà đôi khi được cho như là một thẻ) được cấu hình tự động điển hình dựa vào địa chỉ MAC của giao diện mạng. ID giao diện có thể được cấu hình bằng định dạng EUI-64.
+- Site prefix: là số được gán đến website bằng một ISP. Theo đó, tất cả máy tính trong cùng một vị trí sẽ được chia sẻ cùng một site prefix. Site prefix hướng tới dùng chung khi nó nhận ra mạng của bạn và cho phép mạng có khả năng truy cập từ Internet.
+- Subnet ID: là thành phần ở bên trong trang web, được sử dụng với chức năng miêu tả cấu trúc trang của mạng. Một IPv6 subnet có cấu trúc tương đương với một nhánh mạng đơn như subnet của IPv4.
+- Interface ID: có cấu trúc tương tự ID trong IPv4. Số này nhận dạng duy nhất một host riêng trong mạng. Interface ID (thứ mà đôi khi được cho như là một thẻ) được cấu hình tự động điển hình dựa vào địa chỉ MAC của giao diện mạng. ID giao diện có thể được cấu hình bằng định dạng EUI-64.
 
 ![Alt text](../imgs/image.png)
+
+# 3. Phân loại IPv6
+## 3.1 Unicast Address
+Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6. Một gói tin có đích đến là 1 địa chỉ unicast thì gói tin đó sẽ được chuyển đến 1 interface duy nhất có địa chỉ đó. Có các loại địa chỉ sau thuộc Unicast:
+- Global Unicast Address: Là địa chỉ IPv6 toàn cầu (tương tự như địa chỉ public của IPv4). Phạm vi định vị của GUA là toàn hệ thống IPv6 trên thế giới.
+    - 3 bit đầu luôn có giá trị là 001 (Prefix=2000::/3)
+    - Global Routing Prefix: gồm 45 bit. Là địa chỉ được cung cấp cho công ty, cơ quan, tập đoàn hay một tổ chức nào đó khi đăng ký địa chỉ IPv6 public.
+    - Subnet ID: Gồm 16 bit, là địa chỉ do các tổ chức tự cấp.
+    - Interface ID: Gồm 54 bit, là địa chỉ của các interface trong subnet.
+
+![Alt text](../imgs/global.png)
+
+- Link-local Address: Là địa chỉ được sử dụng cho những node trên 1 link duy nhất. Tự động cấu hình, tìm kiếm neighbor. Router không được chuyển tiếp gói tín có địa chỉ nguồn hoặc đích là link-local ra khỏi phạm vi liên kết. Bao gồm các địa chỉ dùng cho các host trong cùng 1 link và quy trình xác định các node (Neighbor Discovery Process), qua đó các node trong cùng link cũng có thể liên lạc với nhau. Phạm vi sử dụng của LLA là trong cùng 1 link (do đó có thể trùng nhau ở link khác). Khi dùng HĐH Windows, LLA được cấp tự động như sau:
+
+    - 64 bit đầu có giá trị FE80 là giá trị cố định (Prefix=FE80::/64)
+    - Interface ID: gồm 64 bit kết hợp cùng địa chỉ MAC. Ví dụ: FE80::1CEF:01BC:FE01:1101
+
+![Alt text](../imgs/linklocal.png)
+
+- Site Local Address: Được sử dụng trong hệ thống nội bộ (Intranet) tương tự các địa chỉ Private IPv4 (10.X.X.X, 172.16.X.X, 192.168.X.X). Phạm vi sử dụng Site-Local Addresses là trong cùng Site.
+
+    - 1111 1110 11: 10 bit đầu là giá trị cố định (Prefix=FEC0/10)
+    - Subnet ID: gồm 54 bit dùng để xác định các subnet trong cùng site.
+    - Interface ID: Gồm 64 bit là địa chỉ của các interface trong subnet. Lưu ý: Hai dạng địa chỉ Unicast (LLA và SLA) vừa trình bày trên được gọi chung là các địa chỉ unicast nội bộ (Local Use Unicast Address). Với cấu trúc như thế thì các Local Use Unicast Address có thể bị trùng lặp (trong các Link khác hoặc Site khác). Do vậy khi sử dụng các Local Use Unicast Address có 1 thông số định vị được thêm vào là Additional Identifier gọi là Zone ID.
+
+![Alt text](../imgs/sitelocal.png)
+
+- Unique-Local Addresses: Đối với các tổ chức có nhiều Site, Prefix của SLA có thể bị trùng lặp. Có thể thay thế SLA bằng ULA (RFC 4193), ULA là địa chỉ duy nhất của một Host trong hệ thống có nhiều Site với cấu trúc:
+
+  - 1111 110: 7 bit đầu là giá trị cố định FC00/7. L=0: Local. → Prefix = FC00/8.
+  - Global ID: Địa chỉ site. Có thể gán thêm tuỳ ý.
+  - Subnet ID: Địa chỉ subnet trong site.
+
+![Alt text](../imgs/unique.png)
+## 3.2 Multicast: 
+- Trong địa chỉ IPv6 không còn tồn tại khái niệm địa chỉ Broadcast. Mọi chức năng của địa chỉ Broadcast trong IPv4 được đảm nhiệm thay thế bởi địa chỉ IPv6 Multicast.
+- Địa chỉ Multicast giống địa chỉ Broadcast ở chỗ điểm đích của gói tin là một nhóm các máy trong một mạng, song không phải tất cả các máy. Trong khi Broadcast gửi trực tiếp tới mọi host trong một subnet thì Multicast chỉ gửi trực tiếp cho một nhóm xác định các host, các host này lại có thể thuộc các subnet khác nhau.
+- Host có thể lựa chọn có tham gia vào một nhóm Multicast cụ thể nào đó hay không (thường được thực hiện với thủ tục quản lý nhóm internet - Internet Group Management Protocol), trong khi đó với Broadcast, mọi host là thành viên của nhóm Broadcast bất kể nó có muốn hay không.
+
+## 3.3 Anycast: 
+- Một địa chỉ anycast được đăng kí cho nhiều cổng (trên nhiều node). Một gói tin được gởi đến một địa chỉ anycast là được chuyển đến chỉ một trong số các cổng này, thường là gần nhất.
+- Địa chỉ Anycast được gán cho một nhóm các giao diện (thông thường là những nodes khác nhau), và những gói tin có địa chỉ này sẽ được chuyển đổi giao diện gần nhất có địa chỉ này. Khái niệm gần nhất ở đây dựa vào khoảng cách gần nhất xác định qua giao thức định tuyến sử dụng. Thay vì gửi 1 gói tin đến 1 server nào đó, nó gửi gói tin đến địa chỉ chung mà sẽ được nhận ra bởi tất cả các loại server trong loại nào đó, và nó tin vào hệ thống định tuyến để đưa gói tin đến các server gần nhất này.
+- Trong giao thức IPv6, địa chỉ anycast không có cấu trúc đặc biệt. Các địa chỉ Anycast nằm trong một phần không gian của địa chỉ unicast. Do đó, về mặt cấu trúc địa chỉ Anycast không thể phân biệt với địa chỉ Unicast. Khi những địa chỉ Unicast được gán nhiều hơn cho một giao diện nó trở thành địa chỉ Anycast. Đối với những node được gán địa chỉ này phải được cấu hình với ý nghĩa của địa chỉ anycast. Trong cấu trúc của bất kỳ một địa chỉ anycast đều có một phần tiền tố P dài nhất để xác định phạm vi (vùng) mà địa chỉ anycast đó gán cho các giao diện. Theo cấu trúc này, tiền tố P cho phép thực hiện các qui tắc định tuyến đối với địa chỉ anycast như sau:
+
+    - Đối với phần phía trong của mạng (vùng): Các giao diện được gần các địa chỉ anycast phải khai báo trong bảng định tuyến trên router của hệ thống đó là những mục riêng biệt với nhau.
+    - Đối với giao tiếp bên ngoài mạng: khai báo trên router chỉ gồm một mục là phần tiền tố P (có thể hiểu phần tiền tố này định danh cho một subnet của mạng trong). Chú ý: Trong trường hợp phần tiền tố P của địa chỉ anycast là một tập các giá trị 0. Khi đó các giao diện được gán địa chỉ anycast này không nằm trong một vùng ("vùng" ở đây được hiểu là vùng logic). Do vậy phải khai báo trên các bảng định tuyến như đối với dạng địa chỉ Global Unicast (nghĩa là phải khai báo riêng rẽ từng giao diện). Qua cơ chế định tuyến đối với dạng địa chỉ Anycast mô tả ở trên ta thấy mục đích thiết kế của loại địa chỉ Anycast để hỗ trợ nhưng tổ chức mà cấu trúc mạng của nó được chia theo cấu trúc phân cấp. Trong đó địa chỉ anycast được gán cho các router - mà các router này được chia thành các vùng hay các "đoạn". Khi một gói tin đến router cấp cao nhất trong hệ thống nó sẽ được chuyển đến đồng thời các router trong một "đoạn”.
+    - Sử dụng địa chỉ anycast có những hạn chế như sau:
+      - Một địa chỉ anycast không được sử dụng làm địa chỉ nguồn của một gói tin IPv6.
+      - Một địa chỉ anycast không được phép gán cho một host IPv6 do vậy nó chỉ được gán cho một router IPv6. Có một loại địa chỉ anycast đặc biệt được sử dụng để định danh cho một subnet. Cấu trúc của loại địa chỉ này như sau:
+  ![Alt text](../imgs/83c43f58-75ec-4788-bc93-f4dfaf7bef11.png)
