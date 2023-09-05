@@ -73,3 +73,9 @@ Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6
       - Một địa chỉ anycast không được sử dụng làm địa chỉ nguồn của một gói tin IPv6.
       - Một địa chỉ anycast không được phép gán cho một host IPv6 do vậy nó chỉ được gán cho một router IPv6. Có một loại địa chỉ anycast đặc biệt được sử dụng để định danh cho một subnet. Cấu trúc của loại địa chỉ này như sau:
   ![Alt text](../imgs/83c43f58-75ec-4788-bc93-f4dfaf7bef11.png)
+
+
+  ***Tài liệu tham khảo***
+  [1] [https://wiki.matbao.net/ipv6-la-gi-cach-doi-dia-chi-ipv4-sang-ipv6-va-nguoc-lai/#cau-truc-cua-address-prefixes](https://wiki.matbao.net/ipv6-la-gi-cach-doi-dia-chi-ipv4-sang-ipv6-va-nguoc-lai/#cau-truc-cua-address-prefixes)
+  [2] [https://vinahost.vn/ipv6-la-gi/#ftoc-heading-8](https://vinahost.vn/ipv6-la-gi/#ftoc-heading-8)
+  [3] [https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox](https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox)
