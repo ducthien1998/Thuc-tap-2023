@@ -28,7 +28,7 @@ Một địa chỉ IPv6 được chia thành 3 phần: site prefix, subnet ID, i
 ## 3.1 Unicast Address
 Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6. Một gói tin có đích đến là 1 địa chỉ unicast thì gói tin đó sẽ được chuyển đến 1 interface duy nhất có địa chỉ đó. Có các loại địa chỉ sau thuộc Unicast:
 - Global Unicast Address: Là địa chỉ IPv6 toàn cầu (tương tự như địa chỉ public của IPv4). Phạm vi định vị của GUA là toàn hệ thống IPv6 trên thế giới.
-    - 3 bit đầu luôn có giá trị là 001 (Prefix=2000::/3)
+    - 3 bit đầu luôn có giá trị là 001 (Prefix=2000::/3) đến 3FFF::/3
     - Global Routing Prefix: gồm 45 bit. Là địa chỉ được cung cấp cho công ty, cơ quan, tập đoàn hay một tổ chức nào đó khi đăng ký địa chỉ IPv6 public.
     - Subnet ID: Gồm 16 bit, là địa chỉ do các tổ chức tự cấp.
     - Interface ID: Gồm 54 bit, là địa chỉ của các interface trong subnet.
