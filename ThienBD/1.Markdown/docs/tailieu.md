@@ -1,8 +1,8 @@
-# Markdown là gì
+# 1.Markdown là gì
 Markdown là ngôn ngữ đánh dấu văn bản , dùng để trình bày bài viết của mình một cách mạch lạc , rõ ràng .
-# Lý do sử dụng 
+# 2.Lý do sử dụng 
 Ngôn ngữ đánh dấu văn bản phổ biến , cách dùng đơn giản tiện dụng 
-# Cách sử dụng 
+# 3.Cách sử dụng 
 - Cú pháp cơ bản 
 
 | Thành phần      | Cú pháp      |

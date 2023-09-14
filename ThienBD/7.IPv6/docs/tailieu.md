@@ -26,19 +26,24 @@ Một địa chỉ IPv6 được chia thành 3 phần: site prefix, subnet ID, i
 
 # 3. Phân loại IPv6
 ## 3.1 Unicast Address
-Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6. Một gói tin có đích đến là 1 địa chỉ unicast thì gói tin đó sẽ được chuyển đến 1 interface duy nhất có địa chỉ đó. Có các loại địa chỉ sau thuộc Unicast:
-- Global Unicast Address: Là địa chỉ IPv6 toàn cầu (tương tự như địa chỉ public của IPv4). Phạm vi định vị của GUA là toàn hệ thống IPv6 trên thế giới.
-    - 3 bit đầu luôn có giá trị là 001 (Prefix=2000::/3) đến 3FFF::/3
+Một địa chỉ unicast là một địa chỉ duy nhất trên internet. Một gói tin có đích đến là 1 địa chỉ unicast thì gói tin đó sẽ được chuyển đến 1 interface duy nhất có địa chỉ đó. Có các loại địa chỉ sau thuộc Unicast:
+- Global Unicast Address: Là địa chỉ IPv6 toàn cầu (tương tự như địa chỉ public của IPv4). Phạm vi định vị của GUA là toàn hệ thống IPv6 trên thế giới và là duy nhất trên internet.
+    - 3 bit đầu luôn có giá trị là 001 (Prefix=2000::/3 đến 3FFF::/3)
+    - Muốn sử dụng thì cần nhà mạng cung cấp 
     - Global Routing Prefix: gồm 45 bit. Là địa chỉ được cung cấp cho công ty, cơ quan, tập đoàn hay một tổ chức nào đó khi đăng ký địa chỉ IPv6 public.
-    - Subnet ID: Gồm 16 bit, là địa chỉ do các tổ chức tự cấp.
-    - Interface ID: Gồm 54 bit, là địa chỉ của các interface trong subnet.
+    - Subnet ID: Gồm 16 bit, dùng để chia mạng con trong tổ chức của mình.
+    - Interface ID: Gồm 64 bit, dùng để gán cho các thiết bị 
 
 ![Alt text](../imgs/global.png)
 
 - Link-local Address: Là địa chỉ được sử dụng cho những node trên 1 link duy nhất. Tự động cấu hình, tìm kiếm neighbor. Router không được chuyển tiếp gói tín có địa chỉ nguồn hoặc đích là link-local ra khỏi phạm vi liên kết. Bao gồm các địa chỉ dùng cho các host trong cùng 1 link và quy trình xác định các node (Neighbor Discovery Process), qua đó các node trong cùng link cũng có thể liên lạc với nhau. Phạm vi sử dụng của LLA là trong cùng 1 link (do đó có thể trùng nhau ở link khác). Khi dùng HĐH Windows, LLA được cấp tự động như sau:
 
-    - 64 bit đầu có giá trị FE80 là giá trị cố định (Prefix=FE80::/64)
-    - Interface ID: gồm 64 bit kết hợp cùng địa chỉ MAC. Ví dụ: FE80::1CEF:01BC:FE01:1101
+    - Dạng địa chỉ link-local sẽ là FE80::/10 với 10 bit đầu cố định 1111 1110 010
+    - Là địa chỉ trên cổng Router, nhưng chi được biết đến bởi các Router trên đoạn link đó , ngoài đoạn link đó thì không ping được đến nhau
+    - Địa chỉ link-local sẽ tự động sinh ra khi đặt địa chỉ IPv6 cho interface theo quy tắc sau 
+      - Bổ đôi địa chỉ MAC và chèn FF:FE vào giữa 
+      - Đảo ngược bit số 7 từ trái sang từ 1 thành 0 hoặc 0 thành 1 
+      - Ghép FE80 vào đầu , nếu chưa đủ 8 octet của IPv6 thì thêm :: vào sau FE80
 
 ![Alt text](../imgs/linklocal.png)
 
@@ -75,7 +80,12 @@ Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6
   ![Alt text](../imgs/83c43f58-75ec-4788-bc93-f4dfaf7bef11.png)
 
 
-  ***Tài liệu tham khảo***
+
+## 3.4 Địa chỉ IPv6 đặc biệt
+- 0:0:0:0:0:0:0:0: Được gọi là địa chỉ không xác định. Địa chỉ này không thật sự được gán cho một giao diện nào. Một host khi khởi tạo có thể sử dụng địa chỉ này như là địa chỉ nguồn của nó trước khi nó biết được địa chỉ thật của nó. Một địa chỉ không xác định không bao giờ có thể đóng vai trò là địa chỉ đích trong ghi tin IPv6 hay trong phần header của quá trình định tuyến.
+- 0:0:0:0:0:0:0:1: Được gọi là địa chỉ loopback. Một nodes có thể sử dùng địa chỉ này để gửi một gói tin IPv6 cho chính nó. Địa chỉ loopback không bao giờ được sử dụng như địa chỉ nguồn của bất kỳ ghi tin IPv6 nào để gửi ra ngoài nodes. Một gói tin với địa chỉ loopback là địa chỉ đích sẽ không bao giờ có thể ra khỏi node đó.       
+
+***Tài liệu tham khảo***
   [1] [https://wiki.matbao.net/ipv6-la-gi-cach-doi-dia-chi-ipv4-sang-ipv6-va-nguoc-lai/#cau-truc-cua-address-prefixes](https://wiki.matbao.net/ipv6-la-gi-cach-doi-dia-chi-ipv4-sang-ipv6-va-nguoc-lai/#cau-truc-cua-address-prefixes)
   [2] [https://vinahost.vn/ipv6-la-gi/#ftoc-heading-8](https://vinahost.vn/ipv6-la-gi/#ftoc-heading-8)
   [3] [https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox](https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox)
