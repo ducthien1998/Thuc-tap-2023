@@ -113,7 +113,8 @@ Một cách để một node triển khai IPv6 và vẫn duy trì sự tương t
 
 
 ***Tài liệu tham khảo***
+
   [1] [https://wiki.matbao.net/ipv6-la-gi-cach-doi-dia-chi-ipv4-sang-ipv6-va-nguoc-lai/#cau-truc-cua-address-prefixes](https://wiki.matbao.net/ipv6-la-gi-cach-doi-dia-chi-ipv4-sang-ipv6-va-nguoc-lai/#cau-truc-cua-address-prefixes)  
   [2] [https://vinahost.vn/ipv6-la-gi/#ftoc-heading-8](https://vinahost.vn/ipv6-la-gi/#ftoc-heading-8)  
-  [3] [https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox](https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox)
+  [3] [https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox](https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox)   
   [4] [https://vnpro.vn/thu-vien/co-che-dual-stacks-trong-chuyen-doi-ipv4-sang-ipv6-2396.html](https://vnpro.vn/thu-vien/co-che-dual-stacks-trong-chuyen-doi-ipv4-sang-ipv6-2396.html)  
