@@ -55,3 +55,8 @@ EIGRP Metric = IGRP Metric * 256
 - BGP là một giao thức định tuyến vecto khoảng cách.
 - Bảng định tuyến chứa tất cả các đích mà router biết và địa chỉ hop tiếp theo mà router phải gửi để đến đích cũng như metric cost của con đường đó.
 - Nếu một router có thể chọn nhiều hop để gửi data tới đích, nó sẽ quyết định chọn một hop dựa vào so sánh các metric phải trả khi gửi data
+
+
+*Tài liệu tham khảo *
+
+[1] [https://thegioimang.vn/dien-dan/threads/c%C3%A1c-giao-th%E1%BB%A9c-%C4%91%E1%BB%8Bnh-tuy%E1%BA%BFn-routing-protocol.34/](https://thegioimang.vn/dien-dan/threads/c%C3%A1c-giao-th%E1%BB%A9c-%C4%91%E1%BB%8Bnh-tuy%E1%BA%BFn-routing-protocol.34/)
