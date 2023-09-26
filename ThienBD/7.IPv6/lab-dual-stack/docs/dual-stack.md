@@ -1,110 +1,118 @@
-# CẤU HÌNH DUAL STACK 
-
+# LAB DUAL STACK 
+## Data truyền từ PC1 đến Server 
+## Cấu hình bài LAB
 ![Alt text](../imgs/1.png)
+## Cấu hình trên Router
+### Trên Router 1
 
+***Đặt dải địa chỉ IPv4 và IPv6***
 
-## Cấu hình trên Router 1
-> Router>enable
+>Router>enable
 Router#configure terminal
 Router(config)#hostname R1
-R1(config)#enable secret class
-R1(config)#line console 0
-R1(config-line)#pass Cisco
-R1(config-line)#login
-R1(config-line)#
-R1(config-line)#exit
-R1(config)#banner motd #Router R1#
-R1(config)#service password-encryption
-R1(config)#ipv6 unicast-routing
-R1(config)#ipv6 router rip haku
+R1(config)#interface serial 0/0/0
+R1(config-if)#ip add 10.1.1.1 255.255.255.0
+R1(config-if)#ipv6 address FEC0:1::1/64
+R1(config-if)#no shut
+R1(config)#interface gigabitEthernet 0/0
+R1(config-if)#ip add 10.0.0.1 255.255.255.0
+R1(config-if)#ipv6 add 2001::1/64
+R1(config-if)#no shut
+
+
+***Cấu hình định tuyến đường đi***
+>R1(config)#router rip
+R1(config-router)#network 10.0.0.0
+R1(config-router)#exit
+R1(config)#ipv6 unicast-routing 
+R1(config)#ipv6 router rip vnpt
 R1(config-rtr)#exit
-R1(config)#int g0/0
-R1(config-if)#ip add 192.168.10.1 255.255.255.0
-R1(config-if)#ipv6 add fe80::1 link-local
-R1(config-if)#duplex auto
-R1(config-if)#speed auto
-R1(config-if)#no shut
+R1(config)#interface serial 0/0/0
+R1(config-if)#ipv6 rip vnpt enable 
 R1(config-if)#exit
-R1(config)#int g0/1
-R1(config-if)#ip add 192.168.11.1 255.255.255.0
-R1(config-if)#ipv6 add 2001:db8:acad:2::1/62
-R1(config-if)#ipv6 rip haku enable
-R1(config-if)#duplex auto
-R1(config-if)#speed auto
-R1(config-if)#no shut
+R1(config)#interface gigabitEthernet 0/0
+R1(config-if)#ipv6 rip vnpt enable 
+R1(config-if)#exit
+R1(config)#end
+R1#copy run startup-config
 
 
-## Đặt địa chỉ mạng trên PC1
+### Trên Router 2
 
-![Alt text](../imgs/pc1.png)
-
-## Đặt địa chỉ mạng trên PC2
-
-![Alt text](../imgs/pc2.png)
-
-
-## Cấu hình trên Router 2
-> Router>enable
+***Đặt dải địa chỉ IPv4 và IPv6***
+>Router>enable
 Router#configure terminal
 Router(config)#hostname R2
-R2(config)#enable secret class
-R2(config)#line console 0
-R2(config-line)#pass Cisco
-R2(config-line)#login
-R2(config-line)#
-R2(config-line)#exit
-R2(config)#banner motd #Router R2#
-R2(config)#service password-encryption
-R2(config)#ipv6 unicast-routing
-R2(config)#ipv6 router rip haku
+R2(config)#interface serial 0/0/0
+R2(config-if)#ip add 10.1.1.2 255.255.255.0
+R2(config-if)#ipv6 address FEC0:1::2/64
+R2(config-if)#no shut
+R2(config)#interface serial 0/0/1
+R2(config-if)#ip add 10.2.2.1 255.255.255.0
+R2(config-if)#ipv6 add 2001:2::1/64
+R2(config-if)#no shut
+
+***Cấu hình định tuyến đường đi***
+>R2(config)#router rip
+R2(config-router)#network 10.0.0.0
+R2(config-router)#exit
+R2(config)#ipv6 unicast-routing 
+R2(config)#ipv6 router rip vnpt
 R2(config-rtr)#exit
-R2(config)#int g0/0
-R2(config-if)#ip add 10.1.1.1 255.255.255.0
-R2(config-if)#ipv6 add 2001:db8:acad:4::1/64
-R2(config-if)#ipv6 add fe80::1 link-local
-R2(config-if)#duplex auto
-R2(config-if)#speed auto
-R2(config-if)#no shut
+R2(config)#interface serial 0/0/0
+R2(config-if)#ipv6 rip vnpt enable 
 R2(config-if)#exit
-R2(config)#int g0/1
-R2(config-if)#ip add 10.1.2.1 255.255.255.0
-R2(config-if)#ipv6 add 2001:db8:acad:5::1/62
-R2(config-if)#ipv6 rip haku enable
-R2(config-if)#duplex auto
-R2(config-if)#speed auto
-R2(config-if)#no shut
+R2(config)#interface serial 0/0/1
+R2(config-if)#ipv6 rip vnpt enable 
+R2(config-if)#exit
+R2(config)#end
+R2#copy run startup-config
 
 
-## Đặt địa chỉ mạng trên PC3
+### Trên Router 3
 
-![Alt text](../imgs/pc3.png)
+***Đặt dải địa chỉ IPv4 và IPv6***
 
-## Đặt địa chỉ mạng trên PC4
+>Router>enable
+Router#configure terminal
+Router(config)#hostname R3
+R3(config)#interface serial 0/0/1
+R3(config-if)#ip add 10.2.2.2 255.255.255.0
+R3(config-if)#ipv6 address FEC0:2::2/64
+R3(config-if)#no shut
+R3(config)#interface gigabitEthernet 0/0
+R3(config-if)#ip add 10.3.3.1 255.255.255.0
+R3(config-if)#ipv6 add 2001:3::1/64
+R3(config-if)#no shut
 
-![Alt text](../imgs/pc4.png)
-
->R1(config)#ipv6 router rip haku
-R1(config-rtr)#exit
-R1(config)#int g0/0
-R1(config-if)#ipv6 rip haku enable 
-R1(config-if)#exit
-R1(config)#int g0/1
-R1(config-if)#ipv6 rip haku enable 
-R1(config-if)#exit
-R1(config)#int s0/1/0
-R1(config-if)#ip add 209.165.200.225 255.255.255.255
-Bad mask /32 for address 209.165.200.225
-R1(config-if)#ipv6 add 2001:db8:3::225/64
-R1(config-if)#ipv6 add fe80::1 link-local 
-R1(config-if)#ipv6 rip haku
-R1(config-if)#ipv6 rip haku enable 
-R1(config-if)#no shut
-R1(config-if)#exit
-R1(config)#router rip
-R1(config-router)#network 192.168.10.0
-R1(config-router)#network 192.168.11.0
-R1(config-router)#network 209.165.200.0
-R1(config-router)#exit
+***Cấu hình định tuyến đường đi***
+>R3(config)#router rip
+R3(config-router)#network 10.0.0.0
+R3(config-router)#exit
+R3(config)#ipv6 unicast-routing 
+R3(config)#ipv6 router rip vnpt
+R3(config-rtr)#exit
+R3(config)#interface serial 0/0/1
+R3(config-if)#ipv6 rip vnpt enable 
+R3(config-if)#exit
+R3(config)#interface gigabitEthernet 0/0
+R3(config-if)#ipv6 rip vnpt enable 
+R3(config-if)#exit
+R3(config)#end
+R3#copy run startup-config
 
 
+## Cấu hình địa chỉ trên PC3
+![Alt text](../imgs/2.png)
+## Cấu hình địa chỉ trên server 1
+![Alt text](../imgs/4.png)
 
+## Cấu hình địa chỉ trên server 2
+![Alt text](../imgs/3.png)
+
+
+## Ping thử IPv4
+![Alt text](../imgs/5.png)
+
+## Ping thử IPv6
+![Alt text](../imgs/6.png)

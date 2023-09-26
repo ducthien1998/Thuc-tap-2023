@@ -75,7 +75,7 @@ R1(config-router)exit
 ### Trên Router 2
 >R2(config)#route ospf 10  
 R2(config-router)#network 192.168.3.0 0.0.0.255 area 0  
-R2(config-router)#network 192.168.2.0 0.0.0.255 area 0  
+R2(config-router)#network 192.168.1.0 0.0.0.255 area 0  
 R2(config-router)exit  
 ### Kiểm tra đường mạng 
 >R2#show ip route ospf  
