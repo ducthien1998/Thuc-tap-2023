@@ -29,7 +29,8 @@ Chọn thư mục lưu
 
 ![Alt text](<../../../9.Cài đặt và sử dụng VMWare/centos 7/imgs/8.png>)
 
-Chọn "Split vỉtual disk into multiple files" sau đó bấm Next
+Chọn "Split virtual disk into multiple files" sau đó bấm Next
+
 ![Alt text](<../../../9.Cài đặt và sử dụng VMWare/centos 7/imgs/9.png>)
 
 Tiếp tục bấm Finish
