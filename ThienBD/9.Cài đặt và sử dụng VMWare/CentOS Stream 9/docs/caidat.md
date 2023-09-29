@@ -14,10 +14,12 @@ Tiếp tục chọn Typical rồi bấm Next
 
 ![Alt text](../imgs/3.png)
 
-Chọn " I will install operating system later " rồi bấm Next
+Chọn " I will install operating system later " rồi bấm Next 
+
 ![Alt text](../imgs/4.png)
 
-Tiếp tục chọn hệ điều hành Linux - phiên bản CentOS 8 64-bit
+Tiếp tục chọn hệ điều hành Linux - phiên bản CentOS 8 64-bit 
+
 ![Alt text](../imgs/5.png)
 
 Đặt tên và chọn thư mục lưu
