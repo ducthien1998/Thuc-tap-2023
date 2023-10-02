@@ -54,6 +54,8 @@ Sau  khi bấm continue chương trình tiếp tục chạy và hiện ra cửa 
 
 ![Alt text](../imgs/16.png)
 
+Sau khi restart ta đã cài đặt xong , màn hình sẽ hiện đăng nhập
+![Alt text](../imgs/17.png)
 
 Sau khi login màn hình sẽ hiện 1 số cập nhật , ỏ đây ta bấm skip
 ![Alt text](../imgs/18.png)
