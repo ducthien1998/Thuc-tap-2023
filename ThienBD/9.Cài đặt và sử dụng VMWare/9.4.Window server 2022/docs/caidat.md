@@ -32,6 +32,7 @@ Một bảng thông số sẽ hiện ra , ở đây ta có thể chọn phiên b
 ![Alt text](../imgs/7.png)
 
 Ở cửa sổ mới ta chọn I will install operating system later rồi bấm Next
+
 ![Alt text](../imgs/9.png)
 
 Cửa số mới hiện lên ta có thể chọn hệ điều hành và phiên bản cài đặt , ở đây ta sẽ chọn hệ điều hành Microsoft Windows , phiên bản window server 2022 
