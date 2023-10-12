@@ -64,6 +64,7 @@ Bấm vào dấu cộng để thêm từng mục
 ![Alt text](../imgs/15.png)
 
 Vùng /boot ta để 500MB rồi bấm add mount point
+
 ![Alt text](../imgs/16.png)
 
 Vùng /home ta để 2GiB rồi bấm add mount point
