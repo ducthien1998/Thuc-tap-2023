@@ -66,5 +66,4 @@ Dùng câu lệnh sau để restart lại ip
 Như vậy ta đã cấu hình static ip thành công 
 
 
-# Cấu hình IP tĩnh cho CentOS 9
 
