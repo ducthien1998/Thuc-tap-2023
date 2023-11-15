@@ -1,0 +1,4 @@
+terminal: command line làm việc với thư mục (ls, cd, pwd, push, pop, mkdir)
+# 1.Terminal là gì 
+Ứng dụng Terminal cho phép bạn có thể điều khiển máy tính của mình bằng dấu nhắc lệnh. Terminal còn là giao diện dòng lệnh giúp quá trình sử dụng trở nên nhanh hơn. Tuy nhiên, để sử dụng Terminal bạn cần nắm rõ các dòng lệnh cũng như chức năng cơ bản của nó.
+Với Linux: Terminal là chương trình phần mềm được cài đặt sẵn trên hệ điều hành Linux, nó cho phép người dùng có thể giao tiếp với máy tính thông qua các câu lệnh được chạy. Vì vậy, Terminal còn được gọi là một trong những chương trình giao diện cửa sổ dòng lệnh.
