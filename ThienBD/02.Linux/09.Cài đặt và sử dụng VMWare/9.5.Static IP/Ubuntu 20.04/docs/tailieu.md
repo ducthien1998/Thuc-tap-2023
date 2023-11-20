@@ -63,10 +63,14 @@ Cài đặt ifupdown thay thế netplan
 Xóa netplan khỏi hệ thống
 `sudo apt-get --purge remove netplan.io`
 
+![Alt text](../imgs/7.png)
+
 Xóa toàn bộ netplan khỏi hệ thống bằng lệnh 
 
 `sudo rm -rf /usr/share/netplan`
 `sudo rm -rf /etc/netplan`
+
+![Alt text](../imgs/8.png)
 
 Vào file interfaces bằng lệnh 
 `vi /etc/network/interfaces`
