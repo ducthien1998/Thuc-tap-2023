@@ -1,6 +1,6 @@
 # Cấu hình IP tĩnh cho CentOS 7
 
-## Cấu hình bằng dòng lệnh
+## Cấu hình bằng sửa file 
 
 Kiểm tra IP hiện tại của thiết bị 
 
@@ -37,7 +37,7 @@ Kiểm tra lại địa chỉ IP xem đã được Restart chưa
 
 ![Alt text](../imgs/5.png)
 
-## Cấu hình bằng sửa file
+## Cấu hình bằng giao diện
 
 Ta dùng câu lệnh phía dưới để mở Network Manager
 
@@ -65,5 +65,32 @@ Dùng câu lệnh sau để restart lại ip
 
 Như vậy ta đã cấu hình static ip thành công 
 
+
+
+## Cấu hình bằng dòng lệnh nmcli
+
+- Cấu hình địa chỉ mạng 
+
+`nmcli con modify eth0 ipv4.addresses 192.168.40.99/24`
+
+- Cấu hình gateway
+
+`nmcli con modify eth0 ipv4.gateway 192.168.40.1`
+
+- Cấu hình dns
+
+`nmcli con modify eth0 ipv4.dns 8.8.8.8`
+
+- Cấu hình ipv4 bằng phương pháp thủ công 
+
+`nmcli con modify eth0 ipv4.method manual`
+
+- Bật kết nối ipv4 mới đặt 
+
+`nmcli con modify eth0 connection.autoconnect yes`
+
+- Restart lại mạng để nhập dải ip mới 
+
+`systemctl restart network.service`
 
 
