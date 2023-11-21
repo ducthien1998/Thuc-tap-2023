@@ -85,9 +85,17 @@ Tiếp theo ta vào thư mục chứa card mạng
 
 ![Alt text](../imgs/11.png)
 
+Dưới đây là file cấu hình mặc định dhcp ban đầu 
+
+![Alt text](../imgs/14.png)
+
+
 Ta sửa file như hình , thêm địa chỉ ipv4 để set static ip 
 
 ![Alt text](../imgs/12.png)
+
+Ta thêm địa chỉ addresses kèm theo prefix, sau dấu phẩy là gateway
+Ta thêm DNS , cách nhau bằng dấu ";"
 
 Sau đó nhấn ESC và bấm :wq
 

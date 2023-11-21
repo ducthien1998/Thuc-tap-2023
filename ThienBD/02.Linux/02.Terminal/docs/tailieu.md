@@ -90,3 +90,5 @@ Ví dụ : cd <đường dẫn đến thư mục>
 **Tài liệu tham khảo**
 
 [1] [https://blogd.net/linux/virtual-terminal-tren-linux-la-gi/](https://blogd.net/linux/virtual-terminal-tren-linux-la-gi/)
+
+[2] [https://loveubuntu.wiki.zoho.com/C%E1%BB%ADa-s%E1%BB%95-d%C3%B2ng-l%E1%BB%87nh-Terminal.html](https://loveubuntu.wiki.zoho.com/C%E1%BB%ADa-s%E1%BB%95-d%C3%B2ng-l%E1%BB%87nh-Terminal.html)
