@@ -8,12 +8,12 @@ SSH bao gồm có giao thức mạng và bộ tiện ích cơ bản để triể
 Khi chạy giao thức SSH, hệ thống sẽ hỗ trợ cả giao thức ứng dụng và sẽ sử dụng cho trình giả lập Terminal hoặc truyền file. Trên thực tế, người ta còn sử dụng SSH để phát triển nên tunnel bảo mật cho giao thức của ứng dụng.
 ![Alt text](../imgs/2.png)
 
-SSH làm việc thong qua 3 bước
-- Định danh Host - xác định định danh của hệ thống tham gia phiên làm việc SSH
+SSH làm việc thông qua 3 bước
+- **Định danh Host - xác định định danh của hệ thống tham gia phiên làm việc SSH**
 
-Việc định danh host được thực hiện qua việc trao đổi khoá. Mỗi máy tính có hỗ trợ kiểu truyền thông SSH có một khoá định danh duy nhất. Khoá này gồm hai thành phần: khoá riêng và khoá công cộng. Khoá công cộng được sử dụng khi cần trao đổi giữa các máy chủ với nhau trong phiên làm việc SSH, dữ liệu sẽ được mã hoá bằng khoá riêng và chỉ có thể giải mã bằng khoá công khai. Khi có sự thay đổi về cấu hình trên máy chủ: thay đổi chương trình SSH, thay đổi cơ bản trong hệ điều hành, khoá định danh cũng sẽ thay đổi. Khi đó mọi người sử dụng SSH để đăng nhập vào máy chủ này đều được cảnh báo về sự thay đổi này. Khi hai hệ thống bắt đầu một phiên làm việc SSH, máy chủ sẽ gửi khoá công cộng của nó cho máy khách. Máy khách sinh ra một khoá phiên ngẫu nhiên và mã hoá khoá này bằng khoá công cộng của máy chủ, sau đó gửi lại cho máy chủ. Máy chủ sẽ giải mã khoá phiên này bằng khoá riêng của mình và nhận được khoá phiên. Khoá phiên này sẽ là khoá sử dụng để trao đổi dữ liệu giữa hai máy. Quá trình này được xem như các bước nhận diện máy chủ và máy khách.  
+    Việc định danh host được thực hiện qua việc trao đổi khoá. Mỗi máy tính có hỗ trợ kiểu truyền thông SSH có một khoá định danh duy nhất. Khoá này gồm hai thành phần: khoá riêng và khoá công cộng. Khoá công cộng được sử dụng khi cần trao đổi giữa các máy chủ với nhau trong phiên làm việc SSH, dữ liệu sẽ được mã hoá bằng khoá riêng và chỉ có thể giải mã bằng khoá công khai. Khi có sự thay đổi về cấu hình trên máy chủ: thay đổi chương trình SSH, thay đổi cơ bản trong hệ điều hành, khoá định danh cũng sẽ thay đổi. Khi đó mọi người sử dụng SSH để đăng nhập vào máy chủ này đều được cảnh báo về sự thay đổi này. Khi hai hệ thống bắt đầu một phiên làm việc SSH, máy chủ sẽ gửi khoá công cộng của nó cho máy khách. Máy khách sinh ra một khoá phiên ngẫu nhiên và mã hoá khoá này bằng khoá công cộng của máy chủ, sau đó gửi lại cho máy chủ. Máy chủ sẽ giải mã khoá phiên này bằng khoá riêng của mình và nhận được khoá phiên. Khoá phiên này sẽ là khoá sử dụng để trao đổi dữ liệu giữa hai máy. Quá trình này được xem như các bước nhận diện máy chủ và máy khách.  
 
-- Mã hóa - thiết lập kênh làm việc mã hóa
+- **Mã hóa - thiết lập kênh làm việc mã hóa**
 Sau khi hoàn tất việc thiết lập phiên làm việc bảo mật (trao đổi khoá, định danh), quá trình trao đổi dữ liệu diễn ra thông qua một bước trung gian đó là mã hoá/giải mã. Điều đó có nghĩa là dữ liệu gửi/nhận trên đường truyền đều được mã hoá và giải mã theo cơ chế đã thoả thuận trước giữa máy chủ và máy khách. Việc lựa chọn cơ chế mã hoá thường do máy khách quyết định. Các cơ chế mã hoá thường được chọn bao gồm: 3DES, IDEA, và Blowfish. Khi cơ chế mã hoá được lựa chọn, máy chủ và máy khách trao đổi khoá mã hoá cho nhau. Việc trao đổi này cũng được bảo mật dựa trên đinh danh bí mật của các máy. Kẻ tấn công khó có thể nghe trộm thông tin trao đổi trên đường truyền vì không biết được khoá mã hoá. Các thuật toán mã hoá khác nhau và các ưu, nhược điểm của từng loại:
 
     - 3DES (cũng được biết như Triple-DES) -- phương pháp mã hoá mặc định cho SSH.
@@ -21,9 +21,9 @@ Sau khi hoàn tất việc thiết lập phiên làm việc bảo mật (trao đ
     - Arcfour—Nhanh, nhưng các vấn đề bảo mật đã được phát hiện.
     - Blowfish—Nhanh và bảo mật, nhưng các phương pháp mã hoá đang được cải tiến.
 
-- Chứng thực - xác thực người sử dụng có quyền đăng nhập hệ thống 
+- **Chứng thực - xác thực người sử dụng có quyền đăng nhập hệ thống** 
 
-Việc chứng thực là bước cuối cùng trong ba bước, và là bước đa dạng nhất. Tại thời điểm này, kênh trao đổi bản thân nó đã được bảo mật. Mỗi định danh và truy nhập của người sử dụng có thể được cung cấp theo rất nhiều cách khác nhau. Chẳng hạn, kiểu chứng thực rhosts có thể được sử dụng, nhưng không phải là mặc định; nó đơn giản chỉ kiểm tra định danh của máy khách được liệt kê trong file rhost (theo DNS và địa chỉ IP). Việc chứng thực mật khẩu là một cách rất thông dụng để định danh người sử dụng, nhưng ngoài ra cũng có các cách khác: chứng thực RSA, sử dụng ssh-keygen và ssh-agent để chứng thực các cặp khoá.
+    Việc chứng thực là bước cuối cùng trong ba bước, và là bước đa dạng nhất. Tại thời điểm này, kênh trao đổi bản thân nó đã được bảo mật. Mỗi định danh và truy nhập của người sử dụng có thể được cung cấp theo rất nhiều cách khác nhau. Chẳng hạn, kiểu chứng thực rhosts có thể được sử dụng, nhưng không phải là mặc định; nó đơn giản chỉ kiểm tra định danh của máy khách được liệt kê trong file rhost (theo DNS và địa chỉ IP). Việc chứng thực mật khẩu là một cách rất thông dụng để định danh người sử dụng, nhưng ngoài ra cũng có các cách khác: chứng thực RSA, sử dụng ssh-keygen và ssh-agent để chứng thực các cặp khoá.
 
 ## 1.3 Chức năng của SSH
 SSH có thể được sử dụng cho nhiều mục đích khác nhau, bao gồm:
@@ -107,3 +107,16 @@ Dưới đây là một số thay đổi mà bạn có thể thực hiện đố
 - Giới hạn số lần xác thực tối đa. Điều này sẽ giúp ngăn chặn các cuộc tấn công brute-force.
 - Cấm đăng nhập bằng tài khoản root qua SSH. Bạn chỉ nên sử dụng tài khoản root cho các tác vụ quản trị hệ thống.
 - Cho phép chỉ những người dùng cụ thể đăng nhập. Bạn nên liệt kê các người dùng được phép đăng nhập trong 
+
+
+
+
+
+
+
+
+
+*Tài liệu tham khảo*
+
+[1] [https://fptcloud.com/ssh-la-gi/](https://fptcloud.com/ssh-la-gi/)
+[2] [https://vi.wikipedia.org/wiki/SSH](https://vi.wikipedia.org/wiki/SSH)
