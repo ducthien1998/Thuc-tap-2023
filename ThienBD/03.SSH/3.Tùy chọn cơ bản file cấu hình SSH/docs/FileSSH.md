@@ -104,3 +104,8 @@ Thực hiện kiểm tra lại quá trình sửa đổi file sshd_config xem có
 `firewall-cmd --permanent --zone=public --add-port=22/tcp`
 `firewall-cmd --reload`
 
+
+
+*Tài liệu tham khảo*
+
+[1] [https://man7.org/linux/man-pages/man5/sshd_config.5.html](https://man7.org/linux/man-pages/man5/sshd_config.5.html)
