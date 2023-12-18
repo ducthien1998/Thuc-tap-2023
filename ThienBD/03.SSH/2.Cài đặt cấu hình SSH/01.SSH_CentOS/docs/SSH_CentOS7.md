@@ -45,7 +45,7 @@ Phần mềm sẽ thông báo bạn có xác nhận để SSH đến server khô
 Sau khi điền tên đăng nhập và password là đã đăng nhập được vào Centos 7
 
 ## 1.2 SSH bằng Keypair
-
+### 1.2.1 Cách 1 :
 Ở phía server ta chạy lệnh phía dưới để tạo cặp keypair
 `ssh-keygen -t rsa`
 
@@ -100,3 +100,71 @@ Mobaxterm sẽ yêu cầu nhập passphrase
 ![Alt text](../imgs/13.png)
 
 như vậy là ta đã ssh bằng keypair thành công 
+
+
+### 1.2.1 Cách 1 :
+
+**Phía server**
+
+Tạo 1 cặp ssh keys
+```
+ssh-keygen -t rsa
+
+```
+
+Đây là đường dẫn lưu Key,nhấn Enter và key sẽ lưu trong file mặc đinh: /root/.ssh/
+Thông tin mật khẩu bảo mật cho Key. Có thể sử dụng mật khẩu này để đăng nhập nếu như không nhớ mật khẩu root.
+Nhập lại mật khẩu passphrase.
+Các key sẽ được tạo ra và lưu trữ trong /root/.ssh/ gồm có id_rsa và id_rsa.pub
+
+Phân quyền cho cặp key.
+- Lưu ý: nếu bạn không chỉnh sửa cấu hình ssh thì bạn phải chuyển public keys tới thư mục mặc định (~/.ssh/authorized_keys) thì server mới có thể xác nhận.
+
+``````
+mv /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+
+chmod 600 /root/.ssh/authorized_keys
+
+chmod 700 .ssh
+
+``````
+
+- Cấu hình file /etc/ssh/sshd_config để khai báo thư mục đặt key, cũng như cho phép user root login.
+
+```
+vi /etc/ssh/sshd_config
+
+```
+
+![Alt text](../imgs/14.png)
+
+- Restart service ssh
+
+```
+systemctl restart sshd
+```
+
+**Phía Client**
+
+- Nếu bạn sử dụng Windows để SSH đến, tiến hành copy file private key ra máy và load bằng PuTTY hoặc MobaXterm. Ở đây mình dùng MobaXterm để load private key.
+- Trên MobaXterm, ta vào Tools -> MobaKeyGen
+![Alt text](../imgs/15.png)
+
+
+- Chọn file private key
+
+![Alt text](../imgs/16.png)
+
+- Nhập passphrase
+
+![Alt text](../imgs/17.png)
+
+- Sau đó, lưu lại dưới dạng ppk
+
+![Alt text](../imgs/18.png)
+
+- SSH vào server 
+
+![Alt text](../imgs/19.png)
+
+
