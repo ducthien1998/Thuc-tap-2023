@@ -182,3 +182,9 @@ Truy cập bằng CMD trên Window
 
 ![Alt text](../imgs/15.png)
 
+
+
+*Tài liệu tham khảo*
+
+[1] [https://news.cloud365.vn/ftp-huong-dan-cau-hinh-ftp-server-tren-centos-7-voi-vsftpd/](https://news.cloud365.vn/ftp-huong-dan-cau-hinh-ftp-server-tren-centos-7-voi-vsftpd/)
+
