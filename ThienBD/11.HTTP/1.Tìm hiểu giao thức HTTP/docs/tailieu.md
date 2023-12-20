@@ -15,7 +15,7 @@ Trong quá trình kết nối và trao đổi thông tin, trình duyệt của b
 ## 1.3 Cấu trúc của HTTP
 
 Cấu trúc của HTTP bao gồm 2 đối tượng là Client và Server . Có thể coi HTTP như giao thức gửi các yêu cầu và phản hồi giữa Client - Server .Tại giao thức này , mọi thiết bị tìm kiếm hay trình duyệt web sẽ đóng vai trò như máy khách , còn máy củ web có vai trò như server 
-- **Client**: Client gửi yêu cầu cụ thể đến Server theo mẫu phương thứuc yêu câif -> Các phiên bản giao thức cùng với URI gửi thông báo MIME ( gồm thông tin máy khách , nội dung của đối tượng , bộ chỉnh sửa ) đến server qua kết nối TCP/IP .
+- **Client**: Client gửi yêu cầu cụ thể đến Server theo mẫu phương thức yêu cầu -> Các phiên bản giao thức cùng với URI gửi thông báo MIME ( gồm thông tin máy khách , nội dung của đối tượng , bộ chỉnh sửa ) đến server qua kết nối TCP/IP .
 - **Server**: Server nhận các yêu cầu -> Phản hồi lại bằng một dòng trạng thái qua thông báo MIME có chứa thông tin máy chủ , thông tin về nội dung của đối tượng và thực thể của đa phương tiện .
 
 
@@ -69,9 +69,9 @@ Proxy được hiểu đơn giản là sợi dây liên kết giữa người tr
     - Server web xử lý yêu cầu và gửi phản hồi đến proxy server.
     - Proxy server nhận phản hồi và chuyển tiếp phản hồi đến client.
 
-### 1.6.1.Transparent Proxy (Proxy không màu)
+### 1.6.1.Transparent Proxy (Proxy minh bạch)
 
-Proxy trong suốt là loại Proxy sử dụng IP của bạn để xác nhận yêu cầu truy cập trang web. Loại Proxy này thường được những nơi công cộng như thư viện, nhà sách, trường học, công viên, siêu thị sử dụng. Lý do là bởi vì bọn chúng khá dễ lọc nội dung truy cập do dễ dàng lập tên máy chủ và máy khách.
+Proxy minh bạch là loại Proxy sử dụng IP của bạn để xác nhận yêu cầu truy cập trang web. Loại Proxy này thường được những nơi công cộng như thư viện, nhà sách, trường học, công viên, siêu thị sử dụng. Lý do là bởi vì chúng khá dễ lọc nội dung truy cập do dễ dàng lập tên máy chủ và máy khách.
 
 ### 1.6.2.Incognito Proxy( Proxy ẩn danh)
 
