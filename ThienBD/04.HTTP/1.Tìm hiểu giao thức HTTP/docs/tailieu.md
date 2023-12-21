@@ -9,7 +9,7 @@ Trong quá trình kết nối và trao đổi thông tin, trình duyệt của b
 ## 1.2.Các đặc trưng của HTTP
 
 - Kết nối không liên tục : Quy trình xử lý , phản hồi yêu cầu của HTTP là Client tạo yêu cầu  -> dừng kết nối với Server để đợi phản hồi -> Server tiến hành xử lý yêu cầu  -> thiết lập kết nối tới Client và gửi phản hồi 
-- Độc lập: Đặc trưng cơ bản thứ hai của HTTP là tính độc lập. Bạn có thể gửi mọi loại dữ liệu qua HTTP miễn sao máy chỉ và Client có biện pháp kiểm soát các nội dung của dữ liệu. Client và Server cần xác định nội dung gửi đi thuộc kiểu gì để lựa chọn MIME phù hợp.
+- Độc lập: Đặc trưng cơ bản thứ hai của HTTP là tính độc lập. Bạn có thể gửi mọi loại dữ liệu qua HTTP miễn sao máy chủ và Client có biện pháp kiểm soát các nội dung của dữ liệu. Client và Server cần xác định nội dung gửi đi thuộc kiểu gì để lựa chọn MIME phù hợp.
 - HTTP là stateless: Là connectionless nên đặc trưng thứ ba của HTTP là Stateless. Máy chủ và Client chỉ biết nhau trong yêu cầu của hiện tại, ngay sau đó, chúng sẽ quên. Ngoài ra, Cả máy khách và server đều có thể lưu lại thông tin về những yêu cầu giữ các website.
 
 ## 1.3 Cấu trúc của HTTP
@@ -168,7 +168,7 @@ Sau khi cài đặt xong ta kiểm tra thử phiên bản đã cài đặt
 
 ![Alt text](../imgs/5.png)
 
-Đây là phiên bản 7.81.0 phát hành 2022
+
 
 
 ## 2.4.Sử dụng CURL
