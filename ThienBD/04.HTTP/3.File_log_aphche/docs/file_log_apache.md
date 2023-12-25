@@ -28,10 +28,10 @@ Tất cả các lỗi / thông tin chẩn đoán Apache, các lỗi khác đư�
 
 # 2.Xem file Log
 
-Một trong những cách phổ biến nhất để xem tệp nhật ký Apache là thông qua `tail` lệnh in 10 dòng cuối cùng từ một tệp. Khi `-f` tùy chọn được cung cấp, lệnh sẽ xem tệp và xuất nội dung của nó theo thời gian thực.
+Một trong những cách phổ biến nhất để xem tệp nhật ký Apache là thông qua `tail` lệnh in 100 dòng cuối cùng từ một tệp. Khi `-100` tùy chọn được cung cấp, lệnh sẽ xem tệp và xuất nội dung của nó theo thời gian thực.
 
 ```
-sudo tail -f /var/log/apache2/access.log
+sudo tail -100 /var/log/apache2/access.log
 ```
 ![Alt text](../imgs/3.png)
 
@@ -47,7 +47,7 @@ Bạn cũng có thể muốn lọc các mục nhật ký trong tệp nhật ký 
 sudo grep GET /var/log/apache2/access.log
 ```
 
-# 3.Định dạng nhất ký truy cập 
+# 3.Định dạng nhật ký truy cập 
 Nhật ký truy cập ghi lại tất cả các yêu cầu được máy chủ xử lý. Bạn có thể xem những tài nguyên nào đang được yêu cầu, trạng thái của từng yêu cầu và thời gian xử lý phản hồi của chúng.
 
 ## 3.1.Định dạng nhật ký chung

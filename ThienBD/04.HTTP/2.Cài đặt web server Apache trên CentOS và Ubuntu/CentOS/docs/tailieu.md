@@ -39,7 +39,7 @@ sudo firewall-cmd --reload
 
 ## Bước 2 – Kiểm tra máy chủ Web
 
-Apache không tự động khởi động trên CentOS sau khi hoàn tất quá trình cài đặt. Vì vậy, nó cần được khởi động theo cách thủ công để có thể tiếp tụ c cài đặt web server trên CentOS 7:
+Apache không tự động khởi động trên CentOS sau khi hoàn tất quá trình cài đặt. Vì vậy, nó cần được khởi động theo cách thủ công để có thể tiếp tục cài đặt web server trên CentOS 7:
 
 ```
 sudo systemctl start httpd
@@ -231,7 +231,7 @@ Lệnh setsebool thay đổi giá trị boolean của SELinux. Flag -P sẽ cậ
 
 - Điều chỉnh chính sách Apache trên directory
 
-Đầu tiền kiểm tra context type mà SELinux đã cung cấp cho directory `/var/www/example.com/log`
+Đầu tiền kiểm tra context type mà SELinux đã cung cấp cho directory `/var/www/ducthien.com/log`
 Lệnh này liệt kê và in cotext SELinux của directory. Bạn sẽ thấy output như sau:
 
 ![Alt text](../imgs/7.png)
@@ -264,7 +264,7 @@ Output sẽ phản ánh các loại context được cập nhật:
 
 ## Bước 6 – Kiểm tra Virtual Host
 
-Khi SELinux context đã được cập nhật, Apache sẽ có thể ghi vào directory /var/www/example.com/log. Bây giờ bạn có thể khởi động lại Apache
+Khi SELinux context đã được cập nhật, Apache sẽ có thể ghi vào directory /var/www/ducthien.com/log. Bây giờ bạn có thể khởi động lại Apache
 
 ```
 sudo systemctl restart httpd
