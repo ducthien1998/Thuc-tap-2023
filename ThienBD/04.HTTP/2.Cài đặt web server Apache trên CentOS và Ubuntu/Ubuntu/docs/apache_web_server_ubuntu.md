@@ -298,3 +298,11 @@ sudo systemctl restart apache2
 
 
 Như vậy ta đã có thể truy cập nhiều virtual host trên 1 server qua các port khác nhau 
+
+
+*Tài liệu tham khảo*
+[1] [https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-22-04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-22-04)
+
+[2] [https://ubiq.co/tech-blog/how-to-change-port-number-in-apache-in-ubuntu/](https://ubiq.co/tech-blog/how-to-change-port-number-in-apache-in-ubuntu/)
+
+[3] [https://ubuntu.com/tutorials/install-and-configure-apache#5-activating-virtualhost-file](https://ubuntu.com/tutorials/install-and-configure-apache#5-activating-virtualhost-file)
