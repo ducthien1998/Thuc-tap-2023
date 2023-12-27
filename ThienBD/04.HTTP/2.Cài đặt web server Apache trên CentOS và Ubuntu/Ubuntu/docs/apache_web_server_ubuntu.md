@@ -155,7 +155,7 @@ sudo nano /var/www/ducthien/index.html
 
 Sau đó lưu rồi đóng lại file.
 
-Để Apache có thể cung cấp nội dung thì bạn cần tạo một file virtual host với các directive chính xác. Thay vì chỉnh sửa trực tiếp file cấu hình trong /etc/apache2/sites-available.000-default.conf thì bạn có thể tạo một file mới trong /etc/apache2/sites-available/vietnixtest.conf:
+Để Apache có thể cung cấp nội dung thì bạn cần tạo một file virtual host với các directive chính xác. Thay vì chỉnh sửa trực tiếp file cấu hình trong /etc/apache2/sites-available.000-default.conf thì bạn có thể tạo một file mới trong /etc/apache2/sites-available/ducthien.conf:
 
 ```
 sudo nano /etc/apache2/sites-available/ducthien.conf
@@ -206,3 +206,95 @@ sudo systemctl restart apache2
 ```
 
 Bây giờ thì Apache đã bắt đầu cung cấp nội dung cho tên miền của bạn. Bạn có thể vào trang http://ducthien để kiểm tra.
+
+
+
+# CẤU HÌNH NHIỀU VIRTUAL HOST TRÊN 1 SERVER
+
+**1. Tạo thêm virtual host**
+Tạo thư mục thứ 2 tên hanquoc như sau 
+
+```
+sudo mkdir /var/www/hanquoc
+```
+
+Sau đó, gán quyền truy cập thư mục bằng biến môi trường $USER: 
+
+```
+sudo chown -R $USER:$USER /var/www/hanquoc
+```
+
+Để đảm bảo cho phép chủ sở hữu quyền đọc, ghi và thực thi, đồng thời cho quyền đọc và thực thi đối với group và những user khác thì bạn có thể dùng lệnh sau:
+
+```
+sudo chmod -R 755 /var/www/hanquoc
+```
+Sau đó tạo một trang mẫu index.html bằng một text editor bất kỳ:
+
+```
+sudo nano /var/www/hanquoc/index.html
+```
+Ở bên trong, thêm đoạn HTML sau:
+
+```
+<html>
+    <head>
+        <title>Welcome to hanquoc!</title>
+    </head>
+    <body>
+        <h1>Success!  The hanquoc virtual host is working!</h1>
+    </body>
+</html>
+```
+
+Tạo một file virtual host mới
+```
+sudo nano /etc/apache2/sites-available/ducthien.conf
+```
+
+Sau đó paste đoạn code dưới đây
+
+```
+<VirtualHost *:81>
+    ServerAdmin webmaster@localhost
+    ServerName hanquoc.com
+    ServerAlias www.hanquoc.com
+    DocumentRoot /var/www/hanquoc
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+```
+
+Lưu ý port ở đây ta để là `81`
+
+Bây giờ bạn có thể enable file bằng công cụ a2ensite
+
+sudo a2ensite hanquoc.conf
+
+Tạo tương tự các virtual host khac : vietnam , canada
+
+**2.Truy cập file config và thêm port**
+
+Chạy lệnh sau để mở tệp cấu hình máy chủ Apache
+
+```
+sudo vi /etc/apache2/ports.conf
+```
+![Alt text](../imgs/6.png)
+
+Thêm các port mà virtual host đã tạo
+
+Cấu hình tường lửa cho phép truy cập web qua port mới , ta chạy lệnh dưới 
+
+```
+sudo ufw allow 81
+```
+Restart lại dịch vụ apache web server
+
+```
+sudo systemctl restart apache2
+```
+
+
+Như vậy ta đã có thể truy cập nhiều virtual host trên 1 server qua các port khác nhau 
