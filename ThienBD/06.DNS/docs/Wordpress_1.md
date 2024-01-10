@@ -126,6 +126,7 @@ Sau khi tạo Database ta có thể kiểm tra bằng 1 số lệnh sau
 SHOW DATABASES;
 DROP DATABASE database_name;
 Select user from mysql.user; 
+SELECT User, Host FROM mysql.user;
 DROP USER 'bdt1803'@'localhost';
 
 ```

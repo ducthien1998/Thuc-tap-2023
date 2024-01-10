@@ -26,6 +26,26 @@ setenforce 0
 systemctl stop firewalld
 
 ```
+Thêm network interface mới 
+
+```
+vi /etc/sysconfig/network-scripts/ifcfg-ens33:0
+```
+
+Sau đó thêm nội dung phía dưới vào file vừa tạo và restart lại mạng
+
+```
+DEVICE=ens33:0
+TYPE=Ethernet
+ONBOOT=yes
+BOOTPROTO=static
+DEFROUTE=no
+PEERDNS=no
+PEERROUTES=yes
+NAME=ens33:0
+IPADDR=192.168.36.36
+NETMASK=255.255.255.0
+```
 
 # Cấu hình
 
@@ -87,6 +107,8 @@ Trong đó
 - `user` là tên user sử dụng để wordpress kết nối vào MySQL.
 - `IP` là địa chỉ của máy Web Server để truy cập MySQL
 
+![Alt text](../imgs/wp2.1.png)
+
 
 # 2.Trên máy Web server
 
@@ -131,6 +153,7 @@ systemctl restart httpd
 
 Mở trình duyệt web truy cập địa chỉ `http://địa chỉ Ip/info.php`
 
+![Alt text](../imgs/wp2.2.png)
 
 3. Cài wordpress
 
@@ -186,7 +209,7 @@ Trong đó:
 - username_here : password của user login vào mysql
 - localhost : địa chỉ cuả máy MySQL Sever
 
-![Alt text](../imgs/45.png)
+![Alt text](../imgs/wp2.3.png)
 
 
 Sau đó lưu các thay đổi
