@@ -22,6 +22,32 @@ sudo hostnamectl set-hostname database-1
 
 # 2. Thiết lập tham số cần thiết cho OS Ubuntu 22
 
+- Chạy lệnh update
+
+```
+sudo apt update
+```
+
+- Sửa múi giờ.
+```
+sudo timedatectl set-timezone Viet_Nam/Hochiminh
+```
+
+- Cài đặt firewall
+
+```
+sudo apt install firewalld
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
+```
+
+Kiểm tra xem firewall có hoạt động không bằng lệnh
+
+```
+sudo firewall-cmd --state
+```
+
+
 # 3. Cấu hình IP theo yêu cầu 
 
 Vào file interface bằng lệnh
@@ -48,8 +74,15 @@ iface ens33.11 inet static
     netmask 255.255.255.0
     vlan-raw-device ens33
 ```
-
-
+**Cấu hình IP ILO máy chủ HP DL380 Gen10**
+- Nhấn F10 để vào giao diện Intelligent Provisioning.
+- Chọn Perform Maintenance
+- Chọn ILO Configuration để vào cấu hình ILO.
+- Ta vào phần Network Interfaces à Manager Dedicated Network Interface, chọn IPV4 ADDRESSES để hiện ra cửa sổ IPV4 ADDRESS.
+- Tại cửa sổ IPV4 ADDRESS bao gồm các thông số như : Address, Gateway, etc.
+- Sau đó, trở lại cửa sổ Manager Dedicated Network Interface và nhấn Save Settings để lưu thông số IP ILO vừa cài đặt
+- Sau đó, chọn mục Reset Options, chọn Reset ILO để reset ILO để hệ thống reset và nhận cấu hình mới. nhấn OK
+- Sau khi hoàn tất cấu hình IP cho ILO Port, sử dụng trình duyệt để kết nối đến IP vừa setup cho ILO. Đối với server HP, username và password mặc định sẽ được dán lên nắp của server.
 # 4. Cài đặt phần mềm theo yêu cầu 
 
 **Application server**
@@ -147,9 +180,3 @@ mysqld –version
 
 *Tài liệu tham khảo*
 
-[1] [https://kdata.vn/cam-nang/cai-dat-apache-tomcat-tren-ubuntu-2204](https://kdata.vn/cam-nang/cai-dat-apache-tomcat-tren-ubuntu-2204)
-[2] [https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-22-04](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-22-04)
-[3] [https://cloudviet.com.vn/cach-cai-dat-java-tren-ubuntu-22-04/](https://cloudviet.com.vn/cach-cai-dat-java-tren-ubuntu-22-04/)
-[4] [https://www.cherryservers.com/blog/how-to-install-and-start-using-rabbitmq-on-ubuntu-22-04](https://www.cherryservers.com/blog/how-to-install-and-start-using-rabbitmq-on-ubuntu-22-04)
-
-[5] [https://phoenixnap.com/kb/install-mysql-ubuntu-22-04](https://phoenixnap.com/kb/install-mysql-ubuntu-22-04)
