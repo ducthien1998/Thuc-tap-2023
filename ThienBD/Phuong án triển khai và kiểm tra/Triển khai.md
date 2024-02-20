@@ -111,6 +111,8 @@ java -version
 
 ```
 sudo apt install wget
+VER="10.1.1"
+wget https://archive.apache.org/dist/tomcat/tomcat-10/v${VER}/bin/apache-tomcat-${VER}.tar.gz
 ```
 Giải nén tập tin tar và cài đặt Tomcat
 
