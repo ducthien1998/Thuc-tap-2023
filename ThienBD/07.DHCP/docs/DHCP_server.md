@@ -32,7 +32,7 @@ yum install dhcp
 **File cấu hình dhcp nằm tại:**
 
 ```
-/etc/dhcp/dhcpd.conf
+cat /etc/dhcp/dhcpd.conf
 ```
 
 ![Alt text](../imgs/5.png)
@@ -41,7 +41,7 @@ yum install dhcp
 File cấu hình ban đầu sẽ không có thông số cấu hình nên ta copy file mẫu và chỉnh sửa theo nhu cầu:
 
 ```
-cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
+cp /usr/share/doc/dhcp*/dhcpd.conf.example /etc/dhcp/dhcpd.conf
 ```
 
 Chỉnh sửa file cấu hình DHCP:
@@ -113,6 +113,24 @@ systemctl status dhcpd
 
 
 # 2.Cấu hình trên DHCP Client
+## 2.1.Trên Client CentOS-7
+
+Cài đặt Interface mạng nhận DHCP của Server ta tạo ở trên:
+
+```
+[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-ens37
+```
+![alt text](../imgs/23.png)
+
+Sau đó khởi động lại dịch vụ mạng:
+
+Ip ban đầu 
+
+![alt text](../imgs/24.png)
+
+IP sau khi cấp phát DHCP
+
+![alt text](../imgs/25.png)
 
 ## 2.2.Trên Client Window 10
 
@@ -143,3 +161,5 @@ Vào `cmd` thực hiện các lệnh sau:
 Ta được kết quả IP của Client Window 10 :
 
 ![Alt text](../imgs/22.png)
+
+

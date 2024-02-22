@@ -30,7 +30,8 @@ sudo apt update
 
 - Sửa múi giờ.
 ```
-sudo timedatectl set-timezone Viet_Nam/Hochiminh
+sudo timedatectl set-timezone Asia/Ho_Chi_Minh
+
 ```
 
 - Cài đặt firewall
@@ -180,5 +181,5 @@ mysqld –version
 
 
 
-*Tài liệu tham khảo*
+
 
