@@ -83,7 +83,7 @@ systemctl start mysqld
 Cài lại mật khẩu mật khẩu cho quyền root của cơ sở dữ liệu:
 
 ```
-mariadb-secure-installation
+mysql_secure_installation
 ```
 
 Lệnh này cho phép bạn cải thiện bảo mật cài đặt MariaDB theo các cách sau:
