@@ -352,3 +352,8 @@ sed ‘/^delete/d’ file.txt > new_file.txt
 ```
 sed = file.txt | sed ‘N;s/\n/\t/’ > new_file.txt
 ```
+
+- Thêm text vào sau 1 dòng bất kỳ 
+```
+sed '6 a Listen 82' /etc/apache2/ports.conf
+```
