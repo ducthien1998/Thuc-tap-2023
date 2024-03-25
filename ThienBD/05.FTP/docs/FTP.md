@@ -2,7 +2,7 @@
 # 1.FTP là gì 
 ## 1.1.Khái niệm
 
-FTP(file transfer protocol) là giao thức truyền tải tập tin , được dùng trong việc trao đổi dữ liệu trong mạng thông qua giao thức TCP/IP , thường hạot động trên 2 cổng 20 và 21 . Với giao thức này , các máy client trong mạng có thể truy cập đến máy chủ FTP để gửi hoặc lấy dữ liệu , đặc biệt người dùng có thể truy cập vào máy chủ FTP để truyền và nhận dữ liệu dù đang ở xa 
+FTP(file transfer protocol) là giao thức truyền tải tập tin , được dùng trong việc trao đổi dữ liệu trong mạng thông qua giao thức TCP/IP , thường hoạt động trên 2 cổng 20 và 21 . Với giao thức này , các máy client trong mạng có thể truy cập đến máy chủ FTP để gửi hoặc lấy dữ liệu , đặc biệt người dùng có thể truy cập vào máy chủ FTP để truyền và nhận dữ liệu dù đang ở xa 
 
 ![Alt text](../imgs/1.png)
 
