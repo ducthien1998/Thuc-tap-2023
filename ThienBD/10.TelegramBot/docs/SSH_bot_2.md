@@ -89,3 +89,7 @@ Sau khi ssh vào server ta sẽ nhận thông báo như sau
 
 ![alt text](../img/7.png)
 
+
+*Tài liệu tham khảo*
+
+[1] [https://news.cloud365.vn/script-3-giam-sat-truy-cap-ssh-vao-he-thong/](https://news.cloud365.vn/script-3-giam-sat-truy-cap-ssh-vao-he-thong/)

@@ -69,3 +69,11 @@ chmod +x /etc/profile.d/ssh.telegram.sh
 Sau khi ssh vào server ta sẽ nhận thông báo như sau 
 
 ![alt text](../img/8.png)
+
+
+
+*Tài liệu tham khảo* 
+
+[1] [https://github.com/longbao87/linuxtips/blob/main/centos-notification-login](https://github.com/longbao87/linuxtips/blob/main/centos-notification-login)
+
+[2] [https://www.youtube.com/watch?v=o482pX5XJKo](https://www.youtube.com/watch?v=o482pX5XJKo)
